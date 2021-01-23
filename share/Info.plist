@@ -18,16 +18,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>monero-wallet-gui</string>
-  
+  <string>wazn-wallet-gui</string>
+
   <key>CFBundleName</key>
-  <string>Monero GUI</string>
+  <string>Wazn GUI</string>
 
   <key>NSHumanReadableCopyright</key>
-  <string>Copyright © 2014-2020 The Monero Project</string>
+  <string>Copyright © 2019-2021 WAZN Project</string>
 
   <key>CFBundleIdentifier</key>
-  <string>org.monero-project.monero-wallet-gui</string>
+  <string>io.project-wazn.wazn-wallet-gui</string>
 
   <key>CFBundleVersion</key>
   <string>@VERSION_LONG@</string>
@@ -45,18 +45,18 @@
   <array>
     <dict>
       <key>CFBundleURLName</key>
-      <string>monero Handler</string>
+      <string>wazn Handler</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>monero</string>
+        <string>wazn</string>
       </array>
     </dict>
     <dict>
       <key>CFBundleURLName</key>
-      <string>moneroseed Handler</string>
+      <string>waznseed Handler</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>moneroseed</string>
+        <string>waznseed</string>
       </array>
     </dict>
   </array>

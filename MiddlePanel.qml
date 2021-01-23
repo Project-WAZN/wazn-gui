@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -33,13 +34,13 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
+import waznComponents.Wallet 1.0
 
 import "./pages"
 import "./pages/settings"
 import "./pages/merchant"
-import "./components" as MoneroComponents
-import "./components/effects/" as MoneroEffects
+import "./components" as WaznComponents
+import "./components/effects/" as WaznEffects
 
 Rectangle {
     id: root
@@ -75,20 +76,20 @@ Rectangle {
     Rectangle {
         // grey background on merchantView
         visible: currentView === merchantView
-        color: MoneroComponents.Style.moneroGrey
+        color: WaznComponents.Style.waznGrey
         anchors.fill: parent
     }
 
-    MoneroEffects.GradientBackground {
+    WaznEffects.GradientBackground {
         visible: currentView !== merchantView
         anchors.fill: parent
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.middlePanelBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.middlePanelBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_middlePanelBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_middlePanelBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_middlePanelBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_middlePanelBackgroundGradientStop
+        fallBackColor: WaznComponents.Style.middlePanelBackgroundColor
+        initialStartColor: WaznComponents.Style.middlePanelBackgroundGradientStart
+        initialStopColor: WaznComponents.Style.middlePanelBackgroundGradientStop
+        blackColorStart: WaznComponents.Style._b_middlePanelBackgroundGradientStart
+        blackColorStop: WaznComponents.Style._b_middlePanelBackgroundGradientStop
+        whiteColorStart: WaznComponents.Style._w_middlePanelBackgroundGradientStart
+        whiteColorStop: WaznComponents.Style._w_middlePanelBackgroundGradientStop
         start: Qt.point(0, 0)
         end: Qt.point(height, width)
     }
@@ -168,7 +169,7 @@ Rectangle {
                 name: "Account"
                 PropertyChanges { target: root; currentView: accountView }
                 PropertyChanges { target: mainFlickable; contentHeight: accountView.accountHeight + 80 }
-            }	
+            }
         ]
 
     ColumnLayout {
@@ -246,12 +247,12 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WaznComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WaznEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WaznComponents.Style._b_appWindowBorderColor
+            whiteColor: WaznComponents.Style._w_appWindowBorderColor
         }
     }
 

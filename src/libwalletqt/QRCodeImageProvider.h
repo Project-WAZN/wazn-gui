@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -37,4 +38,3 @@ public:
   QImage requestImage(const QString &id, QSize *size, const QSize &requestedSize);
   static QImage genQrImage(const QString &id, QSize *size);
 };
-

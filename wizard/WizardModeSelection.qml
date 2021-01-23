@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -32,7 +33,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 Rectangle {
     id: wizardModeSelection1
@@ -101,8 +102,8 @@ Rectangle {
                 Layout.topMargin: 5
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
@@ -129,8 +130,8 @@ Rectangle {
                 Layout.topMargin: 5
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             WizardMenuItem {
@@ -152,7 +153,7 @@ Rectangle {
             WizardMenuItem {
                 Layout.topMargin: 20
                 headerText: qsTr("Portable mode") + translationManager.emptyString
-                bodyText: qsTr("Create portable wallets and use them on any PC. Enable if you installed Monero on a USB stick, an external drive, or any other portable storage medium.") + translationManager.emptyString
+                bodyText: qsTr("Create portable wallets and use them on any PC. Enable if you installed Wazn on a USB stick, an external drive, or any other portable storage medium.") + translationManager.emptyString
                 checkbox: true
                 checked: wizardModeSelection1.portable
 

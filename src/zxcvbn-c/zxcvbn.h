@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -57,7 +58,7 @@
  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
  * DAMAGE.
- * 
+ *
  **********************************************************************************/
 
 /* If this is defined, the dictiononary data is read from file. When undefined */
@@ -150,7 +151,7 @@ void ZxcvbnUnInit();
  *  Info        The address of a pointer variable to receive information on the parts
  *               of the password. This parameter can be null if no information is wanted.
  *               The data should be freed by calling ZxcvbnFreeInfo().
- * 
+ *
  * Returns the entropy of the password (in bits).
  */
 double ZxcvbnMatch(const char *Passwd, const char *UserDict[], ZxcMatch_t **Info);

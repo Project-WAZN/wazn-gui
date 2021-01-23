@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -33,7 +34,7 @@ import QtQuick.Dialogs 1.2
 
 import "../../js/Utils.js" as Utils
 import "../../js/Windows.js" as Windows
-import "../../components" as MoneroComponents
+import "../../components" as WaznComponents
 
 Rectangle {
     color: "transparent"
@@ -51,14 +52,14 @@ Rectangle {
         anchors.topMargin: 0
         spacing: 6
 
-        MoneroComponents.CheckBox {
+        WaznComponents.CheckBox {
             id: customDecorationsCheckBox
             checked: persistentSettings.customDecorations
             onClicked: Windows.setCustomWindowDecorations(checked)
             text: qsTr("Custom decorations") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        WaznComponents.CheckBox {
             id: checkForUpdatesCheckBox
             enabled: !disableCheckUpdatesFlag
             checked: persistentSettings.checkForUpdates && !disableCheckUpdatesFlag
@@ -66,7 +67,7 @@ Rectangle {
             text: qsTr("Check for updates periodically") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        WaznComponents.CheckBox {
             id: hideBalanceCheckBox
             checked: persistentSettings.hideBalance
             onClicked: {
@@ -76,18 +77,18 @@ Rectangle {
             text: qsTr("Hide balance") + translationManager.emptyString
         }
 
-        MoneroComponents.CheckBox {
+        WaznComponents.CheckBox {
             id: themeCheckbox
-            checked: !MoneroComponents.Style.blackTheme
+            checked: !WaznComponents.Style.blackTheme
             text: qsTr("Light theme") + translationManager.emptyString
             toggleOnClick: false
             onClicked: {
-                MoneroComponents.Style.blackTheme = !MoneroComponents.Style.blackTheme;
-                persistentSettings.blackTheme = MoneroComponents.Style.blackTheme;
+                WaznComponents.Style.blackTheme = !WaznComponents.Style.blackTheme;
+                persistentSettings.blackTheme = WaznComponents.Style.blackTheme;
             }
         }
-        
-        MoneroComponents.CheckBox {
+
+        WaznComponents.CheckBox {
             checked: persistentSettings.askPasswordBeforeSending
             text: qsTr("Ask for password before sending a transaction") + translationManager.emptyString
             toggleOnClick: false
@@ -108,13 +109,13 @@ Rectangle {
             }
         }
 
-        MoneroComponents.CheckBox {
+        WaznComponents.CheckBox {
             checked: persistentSettings.autosave
             onClicked: persistentSettings.autosave = !persistentSettings.autosave
             text: qsTr("Autosave") + translationManager.emptyString
         }
 
-        MoneroComponents.Slider {
+        WaznComponents.Slider {
             Layout.fillWidth: true
             Layout.leftMargin: 35
             Layout.topMargin: 6
@@ -127,14 +128,14 @@ Rectangle {
             onMoved: persistentSettings.autosaveMinutes = value
         }
 
-        MoneroComponents.CheckBox {
+        WaznComponents.CheckBox {
             id: userInActivityCheckbox
             checked: persistentSettings.lockOnUserInActivity
             onClicked: persistentSettings.lockOnUserInActivity = !persistentSettings.lockOnUserInActivity
             text: qsTr("Lock wallet on inactivity") + translationManager.emptyString
         }
 
-        MoneroComponents.Slider {
+        WaznComponents.Slider {
             visible: userInActivityCheckbox.checked
             Layout.fillWidth: true
             Layout.topMargin: 6
@@ -152,7 +153,7 @@ Rectangle {
 
         //! Manage pricing
         RowLayout {
-            MoneroComponents.CheckBox {
+            WaznComponents.CheckBox {
                 id: enableConvertCurrency
                 text: qsTr("Enable displaying balance in other currencies") + translationManager.emptyString
                 checked: persistentSettings.fiatPriceEnabled
@@ -177,13 +178,13 @@ Rectangle {
                 spacing: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.Label {
+                WaznComponents.Label {
                     Layout.fillWidth: true
                     fontSize: 14
                     text: qsTr("Price source") + translationManager.emptyString
                 }
 
-                MoneroComponents.StandardDropdown {
+                WaznComponents.StandardDropdown {
                     id: fiatPriceProviderDropDown
                     Layout.fillWidth: true
                     dataModel: fiatPriceProvidersModel
@@ -201,16 +202,16 @@ Rectangle {
                 spacing: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.Label {
+                WaznComponents.Label {
                     Layout.fillWidth: true
                     fontSize: 14
                     text: qsTr("Currency") + translationManager.emptyString
                 }
 
-                MoneroComponents.StandardDropdown {
+                WaznComponents.StandardDropdown {
                     id: fiatPriceCurrencyDropdown
                     Layout.fillWidth: true
-                    currentIndex: persistentSettings.fiatPriceCurrency === "xmrusd" ? 0 : 1
+                    currentIndex: persistentSettings.fiatPriceCurrency === "waznusd" ? 0 : 1
                     dataModel: fiatPriceCurrencyModel
                     onChanged: {
                         var obj = dataModel.get(currentIndex);
@@ -232,11 +233,11 @@ Rectangle {
             Layout.topMargin: 5
             Layout.leftMargin: 36
 
-            MoneroComponents.WarningBox {
+            WaznComponents.WarningBox {
                 text: qsTr("Enabling price conversion exposes your IP address to the selected price source.") + translationManager.emptyString;
             }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 Layout.topMargin: 10
                 Layout.bottomMargin: 10
                 small: true
@@ -251,7 +252,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.CheckBox {
+        WaznComponents.CheckBox {
             id: proxyCheckbox
             Layout.topMargin: 6
             enabled: !socksProxyFlagSet
@@ -264,7 +265,7 @@ Rectangle {
                 .arg(qsTr("updates downloading, fetching price sources")) + translationManager.emptyString
         }
 
-        MoneroComponents.RemoteNodeEdit {
+        WaznComponents.RemoteNodeEdit {
             id: proxyEdit
             enabled: proxyCheckbox.enabled
             Layout.leftMargin: 36
@@ -282,7 +283,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.StandardButton {
+        WaznComponents.StandardButton {
             visible: !persistentSettings.customDecorations
             Layout.topMargin: 10
             small: true
@@ -301,11 +302,11 @@ Rectangle {
     ListModel {
         id: fiatPriceCurrencyModel
         ListElement {
-            data: "xmrusd"
+            data: "waznusd"
             column1: "USD"
         }
         ListElement {
-            data: "xmreur"
+            data: "wazneur"
             column1: "EUR"
         }
     }
@@ -330,4 +331,3 @@ Rectangle {
         console.log('SettingsLayout loaded');
     }
 }
-

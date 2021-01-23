@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -29,8 +30,8 @@
 import QtQuick 2.9
 import QtGraphicalEffects 1.0
 
-import "../components" as MoneroComponents
-import "effects/" as MoneroEffects
+import "../components" as WaznComponents
+import "effects/" as WaznEffects
 
 Rectangle {
     id: button
@@ -72,8 +73,8 @@ Rectangle {
         start: Qt.point(width, 0)
         end: Qt.point(0, 0)
         gradient: Gradient {
-            GradientStop { position: 0.0; color: MoneroComponents.Style.menuButtonGradientStart }
-            GradientStop { position: 1.0; color: MoneroComponents.Style.menuButtonGradientStop }
+            GradientStop { position: 0.0; color: WaznComponents.Style.menuButtonGradientStart }
+            GradientStop { position: 1.0; color: WaznComponents.Style.menuButtonGradientStop }
         }
         opacity: button.checked ? 1 : 0.3
     }
@@ -82,7 +83,7 @@ Rectangle {
     Rectangle {
         visible: !isOpenGL && (button.checked || buttonArea.containsMouse)
         anchors.fill: parent
-        color: MoneroComponents.Style.menuButtonFallbackBackgroundColor
+        color: WaznComponents.Style.menuButtonFallbackBackgroundColor
         opacity: button.checked ? 1 : 0.3
     }
 
@@ -92,14 +93,14 @@ Rectangle {
         anchors.leftMargin: 20
         height: parent.height
         width: 2
-        color: button.checked ? MoneroComponents.Style.buttonBackgroundColor : "transparent"
+        color: button.checked ? WaznComponents.Style.buttonBackgroundColor : "transparent"
 
         // button text
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             id: label
-            color: MoneroComponents.Style.menuButtonTextColor
-            themeTransitionBlackColor: MoneroComponents.Style._b_menuButtonTextColor
-            themeTransitionWhiteColor: MoneroComponents.Style._w_menuButtonTextColor
+            color: WaznComponents.Style.menuButtonTextColor
+            themeTransitionBlackColor: WaznComponents.Style._b_menuButtonTextColor
+            themeTransitionWhiteColor: WaznComponents.Style._w_menuButtonTextColor
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.right
             anchors.leftMargin: button.getOffset() + 8
@@ -109,26 +110,26 @@ Rectangle {
     }
 
     // menu button right arrow
-    MoneroEffects.ImageMask {
+    WaznEffects.ImageMask {
         anchors.verticalCenter: parent.verticalCenter
         anchors.leftMargin: parent.getOffset()
         anchors.right: parent.right
         anchors.rightMargin: 20
         height: 14
         width: 8
-        image: MoneroComponents.Style.menuButtonImageRightSource
-        color: button.checked ? MoneroComponents.Style.menuButtonImageRightColorActive : MoneroComponents.Style.menuButtonImageRightColor
+        image: WaznComponents.Style.menuButtonImageRightSource
+        color: button.checked ? WaznComponents.Style.menuButtonImageRightColorActive : WaznComponents.Style.menuButtonImageRightColor
         opacity: button.checked ? 0.8 : 0.25
     }
 
-    MoneroComponents.TextPlain {
+    WaznComponents.TextPlain {
         id: symbolText
         anchors.right: parent.right
         anchors.rightMargin: 44
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 12
         font.bold: true
-        color: MoneroComponents.Style.menuButtonTextColor
+        color: WaznComponents.Style.menuButtonTextColor
         visible: appWindow.ctrlPressed
         themeTransition: false
     }

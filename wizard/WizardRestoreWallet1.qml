@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -32,7 +33,7 @@ import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 Rectangle {
     id: wizardRestoreWallet1
@@ -115,7 +116,7 @@ Rectangle {
                 spacing: 30
                 Layout.fillWidth: true
 
-                MoneroComponents.RadioButton {
+                WaznComponents.RadioButton {
                     id: seedRadioButton
                     text: qsTr("Restore from seed") + translationManager.emptyString
                     fontSize: 16
@@ -128,7 +129,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.RadioButton {
+                WaznComponents.RadioButton {
                     id: keysRadioButton
                     text: qsTr("Restore from keys") + translationManager.emptyString
                     fontSize: 16
@@ -141,7 +142,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.RadioButton {
+                WaznComponents.RadioButton {
                     id: qrRadioButton
                     text: qsTr("Restore from QR Code") + translationManager.emptyString
                     fontSize: 16
@@ -174,53 +175,53 @@ Rectangle {
                     border.width: 1
                     border.color: {
                         if(seedInput.text !== "" && seedInput.error){
-                            return MoneroComponents.Style.inputBorderColorInvalid;
+                            return WaznComponents.Style.inputBorderColorInvalid;
                         } else if(seedInput.activeFocus){
-                            return MoneroComponents.Style.inputBorderColorActive;
+                            return WaznComponents.Style.inputBorderColorActive;
                         } else {
-                            return MoneroComponents.Style.inputBorderColorInActive;
+                            return WaznComponents.Style.inputBorderColorInActive;
                         }
                     }
 
-                    MoneroComponents.InputMulti {
+                    WaznComponents.InputMulti {
                         id: seedInput
                         property bool error: false
                         width: parent.width
                         height: 100
 
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                         textMargin: 2
                         text: ""
 
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: WaznComponents.Style.fontRegular.name
                         font.pixelSize: 16
-                        selectionColor: MoneroComponents.Style.textSelectionColor
-                        selectedTextColor: MoneroComponents.Style.textSelectedColor
+                        selectionColor: WaznComponents.Style.textSelectionColor
+                        selectedTextColor: WaznComponents.Style.textSelectedColor
                         wrapMode: TextInput.Wrap
 
                         selectByMouse: true
 
-                        MoneroComponents.TextPlain {
+                        WaznComponents.TextPlain {
                             id: memoTextPlaceholder
                             opacity: 0.35
                             anchors.fill:parent
                             font.pixelSize: 16
                             anchors.margins: 8
                             anchors.leftMargin: 10
-                            font.family: MoneroComponents.Style.fontRegular.name
+                            font.family: WaznComponents.Style.fontRegular.name
                             text: qsTr("Enter your 25 word mnemonic seed") + translationManager.emptyString
-                            color: MoneroComponents.Style.defaultFontColor
+                            color: WaznComponents.Style.defaultFontColor
                             visible: !seedInput.text
                         }
                     }
                 }
 
-                MoneroComponents.CheckBox2 {
+                WaznComponents.CheckBox2 {
                     id: seedOffsetCheckbox
                     text: qsTr("Seed offset passphrase (optional)") + translationManager.emptyString
                 }
 
-                MoneroComponents.LineEdit {
+                WaznComponents.LineEdit {
                     id: seedOffset
                     password: true
                     Layout.fillWidth: true
@@ -230,7 +231,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEdit {
+            WaznComponents.LineEdit {
                 id: addressLine
                 visible: wizardController.walletRestoreMode === 'keys'
                 Layout.fillWidth: true
@@ -242,7 +243,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEdit {
+            WaznComponents.LineEdit {
                 id: viewKeyLine
                 visible: wizardController.walletRestoreMode === 'keys'
                 Layout.fillWidth: true
@@ -254,7 +255,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEdit {
+            WaznComponents.LineEdit {
                 id: spendKeyLine
                 visible: wizardController.walletRestoreMode === 'keys'
                 Layout.fillWidth: true
@@ -267,7 +268,7 @@ Rectangle {
             }
 
             GridLayout{
-                MoneroComponents.LineEdit {
+                WaznComponents.LineEdit {
                     id: restoreHeight
                     Layout.fillWidth: true
                     labelText: qsTr("Wallet creation date as `YYYY-MM-DD` or restore height") + translationManager.emptyString

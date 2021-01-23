@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -59,7 +60,7 @@ QVariant SubaddressModel::data(const QModelIndex &index, int role) const
 
     QVariant result;
 
-    bool found = m_subaddress->getRow(index.row(), [&index, &result, &role](const Monero::SubaddressRow &subaddress) {
+    bool found = m_subaddress->getRow(index.row(), [&index, &result, &role](const Wazn::SubaddressRow &subaddress) {
         switch (role) {
         case SubaddressAddressRole:
             result = QString::fromStdString(subaddress.getAddress());

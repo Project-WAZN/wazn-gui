@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -452,7 +453,7 @@ QUrl WalletManager::localPathToUrl(const QString &path) const
 double WalletManager::getPasswordStrength(const QString &password) const
 {
     static const char *local_dict[] = {
-        "monero", "fluffypony", NULL
+        "wazn", "vermin", NULL
     };
 
     if (!ZxcvbnInit("zxcvbn.dict")) {

@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -34,7 +35,7 @@ import QtQuick.Dialogs 1.2
 import "../../js/Wizard.js" as Wizard
 import "../../js/Utils.js" as Utils
 import "../../version.js" as Version
-import "../../components" as MoneroComponents
+import "../../components" as WaznComponents
 
 
 Rectangle {
@@ -65,14 +66,14 @@ Rectangle {
             columns: 2
             columnSpacing: 0
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 font.pixelSize: 14
                 text: qsTr("GUI version: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 font.pixelSize: 14
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
                 text: Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")" + translationManager.emptyString
             }
 
@@ -81,8 +82,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -90,20 +91,20 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
-                id: guiMoneroVersion
+            WaznComponents.TextBlock {
+                id: guiWaznVersion
                 font.pixelSize: 14
-                text: qsTr("Embedded Monero version: ") + translationManager.emptyString
+                text: qsTr("Embedded Wazn version: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 font.pixelSize: 14
-                color: MoneroComponents.Style.dimmedFontColor
-                text: moneroVersion
+                color: WaznComponents.Style.dimmedFontColor
+                text: waznVersion
             }
 
             Rectangle {
@@ -111,8 +112,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -120,20 +121,20 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet path: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 id: walletLocation
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 property string walletPath: (isIOS ?  appWindow.accountsDir : "") + persistentSettings.wallet_path
                 text: "\
@@ -156,8 +157,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -165,22 +166,22 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 id: restoreHeight
                 font.pixelSize: 14
                 textFormat: Text.RichText
                 text: (typeof currentWallet == "undefined") ? "" : qsTr("Wallet restore height: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 id: restoreHeightText
                 Layout.fillWidth: true
                 textFormat: Text.RichText
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 property var style: "<style type='text/css'>a {cursor:pointer;text-decoration: none; color: #FF6C3C}</style>"
                 text: (currentWallet ? currentWallet.walletCreationHeight : "") + style + " <a href='#'> (%1)</a>".arg(qsTr("Change")) + translationManager.emptyString
@@ -245,8 +246,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -254,19 +255,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet log path: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: "\
                     <style type='text/css'>\
@@ -288,8 +289,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -297,19 +298,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Wallet mode: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: walletModeString
             }
@@ -319,8 +320,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -328,19 +329,19 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Graphics mode: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: isOpenGL ? "OpenGL" : "Low graphics mode"
             }
@@ -351,8 +352,8 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -361,21 +362,21 @@ Rectangle {
                 Layout.topMargin: 2
                 Layout.bottomMargin: 2
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 visible: isTails
                 Layout.fillWidth: true
                 font.pixelSize: 14
                 text: qsTr("Tails: ") + translationManager.emptyString
             }
 
-            MoneroComponents.TextBlock {
+            WaznComponents.TextBlock {
                 visible: isTails
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
                 font.pixelSize: 14
                 text: tailsUsePersistence ? qsTr("persistent") + translationManager.emptyString : qsTr("persistence disabled") + translationManager.emptyString;
             }
@@ -384,13 +385,13 @@ Rectangle {
         RowLayout {
             spacing: 20;
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 small: true
                 text: qsTr("Copy to clipboard") + translationManager.emptyString
                 onClicked: {
                     var data = "";
                     data += "GUI version: " + Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")";
-                    data += "\nEmbedded Monero version: " + moneroVersion;
+                    data += "\nEmbedded Wazn version: " + waznVersion;
                     data += "\nWallet path: " + walletLocation.walletPath;
 
                     data += "\nWallet restore height: ";
@@ -409,11 +410,11 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 small: true
-                text: qsTr("Donate to Monero") + translationManager.emptyString
+                text: qsTr("Donate to Wazn") + translationManager.emptyString
                 onClicked: {
-                    middlePanel.sendTo("888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H", "", "Donation to Monero Core Team");
+                    middlePanel.sendTo("888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H", "", "Donation to Wazn Core Team");
                 }
             }
         }

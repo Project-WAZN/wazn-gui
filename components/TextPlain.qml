@@ -1,7 +1,7 @@
 import QtQuick 2.9
 
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WaznComponents
+import "effects/" as WaznEffects
 
 Text {
     // When using this component, please note that if you use a color different
@@ -12,17 +12,17 @@ Text {
     property bool themeTransition: true
     property string themeTransitionBlackColor: ""
     property string themeTransitionWhiteColor: ""
-    font.family: MoneroComponents.Style.fontMedium.name
+    font.family: WaznComponents.Style.fontMedium.name
     font.bold: false
     font.pixelSize: 14
     textFormat: Text.PlainText
 
-    MoneroEffects.ColorTransition {
+    WaznEffects.ColorTransition {
         enabled: root.themeTransition
         themeTransition: root.themeTransition
         targetObj: root
         duration: 750
-        blackColor: root.themeTransitionBlackColor !== "" ? root.themeTransitionBlackColor : MoneroComponents.Style._b_defaultFontColor
-        whiteColor: root.themeTransitionWhiteColor !== "" ? root.themeTransitionWhiteColor : MoneroComponents.Style._w_defaultFontColor
+        blackColor: root.themeTransitionBlackColor !== "" ? root.themeTransitionBlackColor : WaznComponents.Style._b_defaultFontColor
+        whiteColor: root.themeTransitionWhiteColor !== "" ? root.themeTransitionWhiteColor : WaznComponents.Style._w_defaultFontColor
     }
 }

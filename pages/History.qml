@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -30,16 +31,16 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.TransactionHistory 1.0
-import moneroComponents.TransactionInfo 1.0
-import moneroComponents.TransactionHistoryModel 1.0
-import moneroComponents.Clipboard 1.0
+import waznComponents.Wallet 1.0
+import waznComponents.WalletManager 1.0
+import waznComponents.TransactionHistory 1.0
+import waznComponents.TransactionInfo 1.0
+import waznComponents.TransactionHistoryModel 1.0
+import waznComponents.Clipboard 1.0
 import FontAwesome 1.0
 
-import "../components/effects/" as MoneroEffects
-import "../components" as MoneroComponents
+import "../components/effects/" as WaznEffects
+import "../components" as WaznComponents
 import "../js/Utils.js" as Utils
 import "../js/TxUtils.js" as TxUtils
 
@@ -84,7 +85,7 @@ Rectangle {
             Layout.rightMargin: sideMargin
             Layout.bottomMargin: 10
 
-            MoneroComponents.Label {
+            WaznComponents.Label {
                 fontSize: 24
                 text: qsTr("Transactions") + translationManager.emptyString
             }
@@ -102,12 +103,12 @@ Rectangle {
                 Layout.preferredHeight: 15
                 spacing: 8
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     Layout.alignment: Qt.AlignVCenter
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     text: qsTr("Sort & filter") + translationManager.emptyString
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
 
                     MouseArea {
                         anchors.fill: parent
@@ -119,7 +120,7 @@ Rectangle {
                     }
                 }
 
-                MoneroEffects.ImageMask {
+                WaznEffects.ImageMask {
                     id: sortCollapsedIcon
                     Layout.alignment: Qt.AlignVCenter
                     height: 8
@@ -128,7 +129,7 @@ Rectangle {
                     fontAwesomeFallbackIcon: FontAwesome.arrowDown
                     fontAwesomeFallbackSize: 14
                     rotation: sortAndFilter.collapsed ? 180 : 0
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
 
                     MouseArea {
                         anchors.fill: parent
@@ -149,7 +150,7 @@ Rectangle {
             Layout.rightMargin: sideMargin
             visible: sortAndFilter.collapsed
 
-            MoneroComponents.LineEdit {
+            WaznComponents.LineEdit {
                 id: searchInput
                 Layout.fillWidth: true
                 input.topPadding: 6
@@ -182,7 +183,7 @@ Rectangle {
             columns: 2
             columnSpacing: 20
 
-            MoneroComponents.DatePicker {
+            WaznComponents.DatePicker {
                 id: fromDatePicker
                 Layout.fillWidth: true
                 width: 100
@@ -196,7 +197,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.DatePicker {
+            WaznComponents.DatePicker {
                 id: toDatePicker
                 Layout.fillWidth: true
                 width: 100
@@ -224,11 +225,11 @@ Rectangle {
                 Layout.preferredWidth: childrenRect.width + 38
                 Layout.preferredHeight: 20
 
-                MoneroComponents.TextPlain {
-                    font.family: MoneroComponents.Style.fontRegular.name
+                WaznComponents.TextPlain {
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     text: qsTr("Sort by") + ":" + translationManager.emptyString
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
@@ -244,16 +245,16 @@ Rectangle {
                     clip: true
                     anchors.fill: parent
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: sortBlockheightText
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: WaznComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Blockheight") + translationManager.emptyString
-                        color: root.sortBy === "blockheight" ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        color: root.sortBy === "blockheight" ? WaznComponents.Style.defaultFontColor : WaznComponents.Style.dimmedFontColor
                         themeTransition: false
                     }
 
-                    MoneroEffects.ImageMask {
+                    WaznEffects.ImageMask {
                         height: 8
                         width: 12
                         visible: root.sortBy === "blockheight" ? true : false
@@ -261,7 +262,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                         rotation: {
                             if(root.sortBy === "blockheight"){
                                 return root.sortDirection ? 0 : 180
@@ -303,16 +304,16 @@ Rectangle {
                     clip: true
                     anchors.fill: parent
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: sortDateText
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: WaznComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Date") + translationManager.emptyString
-                        color: root.sortBy === "timestamp" ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        color: root.sortBy === "timestamp" ? WaznComponents.Style.defaultFontColor : WaznComponents.Style.dimmedFontColor
                         themeTransition: false
                     }
 
-                    MoneroEffects.ImageMask {
+                    WaznEffects.ImageMask {
                         height: 8
                         width: 12
                         visible: root.sortBy === "timestamp" ? true : false
@@ -320,7 +321,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                         rotation: {
                             if(root.sortBy === "timestamp"){
                                 return root.sortDirection ? 0 : 180
@@ -362,16 +363,16 @@ Rectangle {
                     clip: true
                     anchors.fill: parent
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: sortAmountText
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: WaznComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Amount") + translationManager.emptyString
-                        color: root.sortBy === "amount" ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.dimmedFontColor
+                        color: root.sortBy === "amount" ? WaznComponents.Style.defaultFontColor : WaznComponents.Style.dimmedFontColor
                         themeTransition: false
                     }
 
-                    MoneroEffects.ImageMask {
+                    WaznEffects.ImageMask {
                         height: 8
                         width: 12
                         visible: root.sortBy === "amount" ? true : false
@@ -379,7 +380,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                         rotation: {
                             if(root.sortBy === "amount"){
                                 return root.sortDirection ? 0 : 180
@@ -415,13 +416,13 @@ Rectangle {
                 visible: !sortAndFilter.collapsed
                 Layout.preferredHeight: 20
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     // status message
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     text: root.historyStatusMessage
 
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
@@ -443,11 +444,11 @@ Rectangle {
                     Layout.preferredWidth: childrenRect.width + 2
                     Layout.preferredHeight: 20
 
-                    MoneroComponents.TextPlain {
-                        font.family: MoneroComponents.Style.fontRegular.name
+                    WaznComponents.TextPlain {
+                        font.family: WaznComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         text: qsTr("Page") + ":" + translationManager.emptyString
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
@@ -458,10 +459,10 @@ Rectangle {
                     Layout.leftMargin: 4
                     Layout.preferredHeight: 20
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: paginationText
                         text: root.txPage + "/" + Math.ceil(root.txCount / root.txMax)
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                         anchors.verticalCenter: parent.verticalCenter
 
                         MouseArea {
@@ -470,8 +471,8 @@ Rectangle {
                             anchors.fill: parent
                             hoverEnabled: pages > 1
                             cursorShape: hoverEnabled ? Qt.PointingHandCursor : Qt.ArrowCursor
-                            onEntered: parent.color = MoneroComponents.Style.orange
-                            onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                            onEntered: parent.color = WaznComponents.Style.orange
+                            onExited: parent.color = WaznComponents.Style.defaultFontColor
                             onClicked: {
                                 if(pages === 1)
                                     return;
@@ -501,7 +502,7 @@ Rectangle {
                     opacity: enabled ? 1.0 : 0.2
                     enabled: false
 
-                    MoneroEffects.ImageMask {
+                    WaznEffects.ImageMask {
                         id: prevIcon
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
@@ -510,7 +511,7 @@ Rectangle {
                         image: "qrc:///images/whiteDropIndicator.png"
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                         rotation: 90
                     }
 
@@ -533,7 +534,7 @@ Rectangle {
                     opacity: enabled ? 1.0 : 0.2
                     enabled: false
 
-                    MoneroEffects.ImageMask {
+                    WaznEffects.ImageMask {
                         id: nextIcon
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
@@ -543,7 +544,7 @@ Rectangle {
                         fontAwesomeFallbackIcon: FontAwesome.arrowDown
                         fontAwesomeFallbackSize: 14
                         rotation: 270
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                     }
 
                     MouseArea {
@@ -577,7 +578,7 @@ Rectangle {
                 }
                 color: {
                     if(!collapsed) return "transparent"
-                    return MoneroComponents.Style.blackTheme ? "#06FFFFFF" : "#04000000"
+                    return WaznComponents.Style.blackTheme ? "#06FFFFFF" : "#04000000"
                 }
 
                 Rectangle {
@@ -630,14 +631,14 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: (isout ? qsTr("Sent") : qsTr("Received")) + translationManager.emptyString
-                                    color: MoneroComponents.Style.historyHeaderTextColor
+                                    color: WaznComponents.Style.historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                 }
                             }
 
@@ -646,19 +647,19 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: (amount == 0 ? qsTr("Unknown amount") : displayAmount) + translationManager.emptyString
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: WaznComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -680,13 +681,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: isout ? qsTr("Fee") : confirmationsRequired === 60 ? qsTr("Mined") : qsTr("Fee") + translationManager.emptyString
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: WaznComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -696,24 +697,24 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: {
                                         if(!isout && confirmationsRequired === 60) return qsTr("Yes") + translationManager.emptyString;
-                                        if(fee !== "") return Utils.removeTrailingZeros(fee) + " XMR";
+                                        if(fee !== "") return Utils.removeTrailingZeros(fee) + " WAZN";
                                         return "-";
                                     }
 
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: WaznComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -742,13 +743,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: (isout ? qsTr("To") : qsTr("In")) + translationManager.emptyString
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: WaznComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -758,9 +759,9 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
+                                WaznComponents.TextPlain {
                                     id: addressField
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: {
                                         if (isout) {
@@ -798,15 +799,15 @@ Rectangle {
                                         }
                                     }
 
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: WaznComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: isout ? "copyable_address" : "copyable_receiving_address"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -828,13 +829,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: qsTr("Confirmations") + translationManager.emptyString
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: WaznComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -844,20 +845,20 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
+                                WaznComponents.TextPlain {
                                     property bool confirmed: confirmations < confirmationsRequired ? false : true
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: confirmed ? confirmations : confirmations + "/" + confirmationsRequired
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: WaznComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = MoneroComponents.Style.orange
-                                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
                             }
@@ -886,13 +887,13 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: qsTr("Date")
-                                    color: MoneroComponents.Style.historyHeaderTextColor
-                                    themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                    themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                    color: WaznComponents.Style.historyHeaderTextColor
+                                    themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                    themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
                             }
@@ -902,12 +903,12 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 20
 
-                                MoneroComponents.TextPlain {
-                                    font.family: MoneroComponents.Style.fontRegular.name
+                                WaznComponents.TextPlain {
+                                    font.family: WaznComponents.Style.fontRegular.name
                                     font.pixelSize: 15
                                     text: persistentSettings.historyHumanDates ? dateHuman : dateTime
 
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    color: WaznComponents.Style.defaultFontColor
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     MouseArea {
@@ -915,13 +916,13 @@ Rectangle {
                                         anchors.fill: parent
                                         hoverEnabled: true
                                         onEntered: {
-                                            parent.color = MoneroComponents.Style.orange
+                                            parent.color = WaznComponents.Style.orange
                                             if (persistentSettings.historyHumanDates) {
                                                 parent.text = dateTime;
                                             }
                                         }
                                         onExited: {
-                                            parent.color = MoneroComponents.Style.defaultFontColor
+                                            parent.color = WaznComponents.Style.defaultFontColor
                                             if (persistentSettings.historyHumanDates) {
                                                 parent.text = dateHuman
                                             }
@@ -946,7 +947,7 @@ Rectangle {
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: 50
 
-                                MoneroComponents.StandardButton {
+                                WaznComponents.StandardButton {
                                     id: btnDetails
                                     text: FontAwesome.info
                                     small: true
@@ -971,10 +972,10 @@ Rectangle {
                                     anchors.leftMargin: 16
                                     width: 28
                                     height: 28
-                                    source: "qrc:///images/miningxmr.png"
+                                    source: "qrc:///images/miningwazn.png"
                                 }
 
-                                MoneroComponents.StandardButton {
+                                WaznComponents.StandardButton {
                                     visible: isout
                                     anchors.left: btnDetails.right
                                     anchors.leftMargin: 10
@@ -1008,13 +1009,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            WaznComponents.TextPlain {
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Description") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: WaznComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -1024,31 +1025,31 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
+                            WaznComponents.TextPlain {
                                 id: txNoteText
-                                font.family: MoneroComponents.Style.fontRegular.name
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: tx_note !== "" ? tx_note : "-"
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 MouseArea {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }
 
-                            MoneroEffects.ImageMask {
+                            WaznEffects.ImageMask {
                                 anchors.top: parent.top
                                 anchors.left: txNoteText.right
                                 anchors.leftMargin: 12
                                 image: "qrc:///images/edit.svg"
                                 fontAwesomeFallbackIcon: FontAwesome.pencilSquare
                                 fontAwesomeFallbackSize: 22
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 opacity: 0.75
                                 width: 23
                                 height: 21
@@ -1076,13 +1077,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            WaznComponents.TextPlain {
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Transaction ID") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: WaznComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -1092,19 +1093,19 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            WaznComponents.TextPlain {
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: hash
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 MouseArea {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }
                         }
@@ -1120,13 +1121,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            WaznComponents.TextPlain {
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Transaction key") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: WaznComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -1136,11 +1137,11 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            WaznComponents.TextPlain {
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Click to reveal")
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 state: "txkey_hidden"
 
@@ -1148,8 +1149,8 @@ Rectangle {
                                     state: "copyable_txkey"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }
                         }
@@ -1165,13 +1166,13 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            WaznComponents.TextPlain {
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 15
                                 text: qsTr("Blockheight") + translationManager.emptyString
-                                color: MoneroComponents.Style.historyHeaderTextColor
-                                themeTransitionBlackColor: MoneroComponents.Style._b_historyHeaderTextColor
-                                themeTransitionWhiteColor: MoneroComponents.Style._w_historyHeaderTextColor
+                                color: WaznComponents.Style.historyHeaderTextColor
+                                themeTransitionBlackColor: WaznComponents.Style._b_historyHeaderTextColor
+                                themeTransitionWhiteColor: WaznComponents.Style._w_historyHeaderTextColor
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
@@ -1181,20 +1182,20 @@ Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 20
 
-                            MoneroComponents.TextPlain {
-                                font.family: MoneroComponents.Style.fontRegular.name
+                            WaznComponents.TextPlain {
+                                font.family: WaznComponents.Style.fontRegular.name
                                 font.pixelSize: 14
                                 text: (blockheight > 0 ? blockheight : qsTr('Pending')) + translationManager.emptyString;
 
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 MouseArea {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = MoneroComponents.Style.orange
-                                    onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }
                         }
@@ -1256,7 +1257,7 @@ Rectangle {
 
                     color: "transparent"
 
-                    MoneroEffects.ImageMask {
+                    WaznEffects.ImageMask {
                         id: collapsedIcon
                         anchors.top: parent.top
                         anchors.topMargin: 24
@@ -1265,7 +1266,7 @@ Rectangle {
                         width: 12
                         image: "qrc:///images/whiteDropIndicator.png"
                         rotation: delegate.collapsed ? 180 : 0
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: WaznComponents.Style.defaultFontColor
                     }
                 }
 
@@ -1274,12 +1275,12 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.top: parent.top
                     height: 1
-                    color: MoneroComponents.Style.appWindowBorderColor
+                    color: WaznComponents.Style.appWindowBorderColor
 
-                    MoneroEffects.ColorTransition {
+                    WaznEffects.ColorTransition {
                         targetObj: parent
-                        blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                        whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                        blackColor: WaznComponents.Style._b_appWindowBorderColor
+                        whiteColor: WaznComponents.Style._w_appWindowBorderColor
                     }
                 }
 
@@ -1288,12 +1289,12 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.top: parent.bottom
                     height: 1
-                    color: MoneroComponents.Style.appWindowBorderColor
+                    color: WaznComponents.Style.appWindowBorderColor
 
-                    MoneroEffects.ColorTransition {
+                    WaznEffects.ColorTransition {
                         targetObj: parent
-                        blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                        whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                        blackColor: WaznComponents.Style._b_appWindowBorderColor
+                        whiteColor: WaznComponents.Style._w_appWindowBorderColor
                     }
                 }
             }
@@ -1306,20 +1307,20 @@ Rectangle {
             Layout.leftMargin: sideMargin
             Layout.rightMargin: sideMargin
 
-            MoneroComponents.TextPlain {
+            WaznComponents.TextPlain {
                 // status message
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: WaznComponents.Style.fontRegular.name
                 font.pixelSize: 15
                 text: root.historyStatusMessage;
-                color: MoneroComponents.Style.dimmedFontColor
-                themeTransitionBlackColor: MoneroComponents.Style._b_dimmedFontColor
-                themeTransitionWhiteColor: MoneroComponents.Style._w_dimmedFontColor
+                color: WaznComponents.Style.dimmedFontColor
+                themeTransitionBlackColor: WaznComponents.Style._b_dimmedFontColor
+                themeTransitionWhiteColor: WaznComponents.Style._w_dimmedFontColor
             }
         }
 
-        MoneroComponents.CheckBox2 {
+        WaznComponents.CheckBox2 {
             id: showAdvancedCheckbox
             Layout.topMargin: 30
             Layout.bottomMargin: 20
@@ -1336,7 +1337,7 @@ Rectangle {
             Layout.rightMargin: sideMargin
             spacing: 20
 
-            MoneroComponents.CheckBox {
+            WaznComponents.CheckBox {
                 id: humanDatesCheckBox
                 checked: persistentSettings.historyHumanDates
                 onClicked: {
@@ -1346,7 +1347,7 @@ Rectangle {
                 text: qsTr("Human readable date format") + translationManager.emptyString
             }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 visible: !isIOS
                 small: true
                 text: qsTr("Export all history") + translationManager.emptyString
@@ -1518,7 +1519,7 @@ Rectangle {
                 // has the correct amount, so we try to fetch it from that instead.
                 amount = Number(TxUtils.destinationsToAmount(destinations));
             }
-            var displayAmount = Utils.removeTrailingZeros(amount.toFixed(12)) + " XMR";
+            var displayAmount = Utils.removeTrailingZeros(amount.toFixed(12)) + " WAZN";
 
             var tx_note = currentWallet.getUserNote(hash);
             var address = "";

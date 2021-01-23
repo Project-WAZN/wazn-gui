@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.0 as QtQuickControls
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 ColumnLayout {
     property alias from: slider.from
@@ -18,7 +18,7 @@ ColumnLayout {
 
     Text {
         id: label
-        color: MoneroComponents.Style.defaultFontColor
+        color: WaznComponents.Style.defaultFontColor
         font.pixelSize: 14
         Layout.fillWidth: true
     }
@@ -36,12 +36,12 @@ ColumnLayout {
             width: parent.availableWidth
             height: implicitHeight
             radius: 2
-            color: MoneroComponents.Style.progressBarBackgroundColor
+            color: WaznComponents.Style.progressBarBackgroundColor
 
             Rectangle {
                 width: parent.visualPosition * parent.width
                 height: parent.height
-                color: MoneroComponents.Style.green
+                color: WaznComponents.Style.green
                 radius: 2
             }
         }
@@ -53,7 +53,7 @@ ColumnLayout {
             implicitHeight: 18
             radius: 8
             color: parent.pressed ? "#f0f0f0" : "#f6f6f6"
-            border.color: MoneroComponents.Style.grey
+            border.color: WaznComponents.Style.grey
         }
 
         onMoved: parent.moved()

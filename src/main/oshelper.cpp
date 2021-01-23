@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -180,7 +181,7 @@ bool OSHelper::installed() const
 {
 #ifdef Q_OS_WIN
     static constexpr const wchar_t installKey[] =
-        L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Monero GUI Wallet_is1";
+        L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Wazn GUI Wallet_is1";
     static constexpr const wchar_t installValue[] = L"InstallLocation";
 
     DWORD size;

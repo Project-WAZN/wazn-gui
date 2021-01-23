@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -31,8 +32,8 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import FontAwesome 1.0
 
-import "../../components" as MoneroComponents
-import "../../components/effects" as MoneroEffects
+import "../../components" as WaznComponents
+import "../../components/effects" as WaznEffects
 
 Rectangle{
     color: "transparent"
@@ -63,8 +64,8 @@ Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: 1
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -72,7 +73,7 @@ Rectangle{
                 Layout.fillHeight: true
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                color: MoneroComponents.Style.blackTheme ? "white" : "darkgrey"
+                color: WaznComponents.Style.blackTheme ? "white" : "darkgrey"
                 width: 2
             }
 
@@ -92,25 +93,25 @@ Rectangle{
                     anchors.leftMargin: 16
                     anchors.verticalCenter: parent.verticalCenter
 
-                    MoneroComponents.Label {
+                    WaznComponents.Label {
                         fontSize: 32
                         text: FontAwesome.home
                         fontFamily: FontAwesome.fontFamilySolid
                         anchors.centerIn: parent
-                        fontColor: MoneroComponents.Style.defaultFontColor
+                        fontColor: WaznComponents.Style.defaultFontColor
                         styleName: "Solid"
                     }
                 }
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     id: localNodeHeader
                     anchors.left: localNodeIcon.right
                     anchors.leftMargin: 14
                     anchors.top: parent.top
-                    color: MoneroComponents.Style.defaultFontColor
-                    opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+                    color: WaznComponents.Style.defaultFontColor
+                    opacity: WaznComponents.Style.blackTheme ? 1.0 : 0.8
                     font.bold: true
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 16
                     text: qsTr("Local node") + translationManager.emptyString
                 }
@@ -121,8 +122,8 @@ Rectangle{
                     anchors.topMargin: 4
                     anchors.left: localNodeIcon.right
                     anchors.leftMargin: 14
-                    color: MoneroComponents.Style.dimmedFontColor
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    color: WaznComponents.Style.dimmedFontColor
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     horizontalAlignment: TextInput.AlignLeft
                     wrapMode: Text.WordWrap;
@@ -130,7 +131,7 @@ Rectangle{
                     topPadding: 0
                     text: qsTr("The blockchain is downloaded to your computer. Provides higher security and requires more local storage.") + translationManager.emptyString
                     width: parent.width - (localNodeIcon.width + localNodeIcon.anchors.leftMargin + anchors.leftMargin)
-                }   
+                }
             }
 
             MouseArea {
@@ -156,8 +157,8 @@ Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: 1
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
 
             Rectangle {
@@ -165,7 +166,7 @@ Rectangle{
                 Layout.fillHeight: true
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                color: MoneroComponents.Style.blackTheme ? "white" : "darkgrey"
+                color: WaznComponents.Style.blackTheme ? "white" : "darkgrey"
                 width: 2
             }
 
@@ -185,25 +186,25 @@ Rectangle{
                     anchors.leftMargin: 16
                     anchors.verticalCenter: parent.verticalCenter
 
-                    MoneroComponents.Label {
+                    WaznComponents.Label {
                         fontSize: 28
                         text: FontAwesome.cloud
                         fontFamily: FontAwesome.fontFamilySolid
                         styleName: "Solid"
                         anchors.centerIn: parent
-                        fontColor: MoneroComponents.Style.defaultFontColor
+                        fontColor: WaznComponents.Style.defaultFontColor
                     }
                 }
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     id: remoteNodeHeader
                     anchors.left: remoteNodeIcon.right
                     anchors.leftMargin: 14
                     anchors.top: parent.top
-                    color: MoneroComponents.Style.defaultFontColor
-                    opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+                    color: WaznComponents.Style.defaultFontColor
+                    opacity: WaznComponents.Style.blackTheme ? 1.0 : 0.8
                     font.bold: true
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 16
                     text: qsTr("Remote node") + translationManager.emptyString
                 }
@@ -214,14 +215,14 @@ Rectangle{
                     anchors.topMargin: 4
                     anchors.left: remoteNodeIcon.right
                     anchors.leftMargin: 14
-                    color: MoneroComponents.Style.dimmedFontColor
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    color: WaznComponents.Style.dimmedFontColor
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 15
                     horizontalAlignment: TextInput.AlignLeft
                     wrapMode: Text.WordWrap;
                     leftPadding: 0
                     topPadding: 0
-                    text: qsTr("Uses a third-party server to connect to the Monero network. Less secure, but easier on your computer.") + translationManager.emptyString
+                    text: qsTr("Uses a third-party server to connect to the Wazn network. Less secure, but easier on your computer.") + translationManager.emptyString
                     width: parent.width - (remoteNodeIcon.width + remoteNodeIcon.anchors.leftMargin + anchors.leftMargin)
                 }
 
@@ -243,8 +244,8 @@ Rectangle{
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 height: 1
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: WaznComponents.Style.dividerColor
+                opacity: WaznComponents.Style.dividerOpacity
             }
         }
 
@@ -256,13 +257,13 @@ Rectangle{
             Layout.topMargin: 20
             visible: persistentSettings.useRemoteNode
 
-            MoneroComponents.WarningBox {
+            WaznComponents.WarningBox {
                 Layout.topMargin: 26
                 Layout.bottomMargin: 6
-                text: qsTr("To find a remote node, type 'Monero remote node' into your favorite search engine. Please ensure the node is run by a trusted third-party.") + translationManager.emptyString
+                text: qsTr("To find a remote node, type 'Wazn remote node' into your favorite search engine. Please ensure the node is run by a trusted third-party.") + translationManager.emptyString
             }
 
-            MoneroComponents.RemoteNodeEdit {
+            WaznComponents.RemoteNodeEdit {
                 id: remoteNodeEdit
                 Layout.minimumWidth: 100
                 placeholderFontSize: 15
@@ -287,7 +288,7 @@ Rectangle{
                 columns: 2
                 columnSpacing: 32
 
-                MoneroComponents.LineEdit {
+                WaznComponents.LineEdit {
                     id: daemonUsername
                     Layout.fillWidth: true
                     labelText: qsTr("Daemon username") + translationManager.emptyString
@@ -298,7 +299,7 @@ Rectangle{
                     fontSize: 15
                 }
 
-                MoneroComponents.LineEdit {
+                WaznComponents.LineEdit {
                     id: daemonPassword
                     Layout.fillWidth: true
                     labelText: qsTr("Daemon password") + translationManager.emptyString
@@ -311,7 +312,7 @@ Rectangle{
                 }
             }
 
-            MoneroComponents.CheckBox {
+            WaznComponents.CheckBox {
                 id: setTrustedDaemonCheckBox
                 checked: persistentSettings.is_trusted_daemon
                 onClicked: {
@@ -321,7 +322,7 @@ Rectangle{
                 text: qsTr("Mark as Trusted Daemon") + translationManager.emptyString
             }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 id: btnConnectRemote
                 enabled: remoteNodeEdit.isValid()
                 small: true
@@ -346,7 +347,7 @@ Rectangle{
             Layout.topMargin: 40
             visible: !persistentSettings.useRemoteNode
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 small: true
                 text: (appWindow.daemonRunning ? qsTr("Stop daemon") : qsTr("Start daemon")) + translationManager.emptyString
                 onClicked: {
@@ -360,7 +361,7 @@ Rectangle{
             }
 
             RowLayout {
-                MoneroComponents.LineEditMulti {
+                WaznComponents.LineEditMulti {
                     id: blockchainFolder
                     Layout.preferredWidth: 200
                     Layout.fillWidth: true
@@ -387,7 +388,7 @@ Rectangle{
                 }
             }
 
-            MoneroComponents.LineEditMulti {
+            WaznComponents.LineEditMulti {
                 id: daemonFlags
                 Layout.fillWidth: true
                 labelFontSize: 14
@@ -412,7 +413,7 @@ Rectangle{
                 ColumnLayout {
                     Layout.fillWidth: true
 
-                    MoneroComponents.RemoteNodeEdit {
+                    WaznComponents.RemoteNodeEdit {
                         id: bootstrapNodeEdit
                         Layout.minimumWidth: 100
                         Layout.bottomMargin: 20
@@ -431,7 +432,6 @@ Rectangle{
                     }
                 }
             }
-        } 
+        }
     }
 }
-

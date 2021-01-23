@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -31,7 +32,7 @@ import QtQuick 2.9
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 Item {
     id: item
@@ -47,10 +48,10 @@ Item {
 
     property alias placeholderText: placeholderLabel.text
     property bool placeholderCenter: false
-    property string placeholderFontFamily: MoneroComponents.Style.fontRegular.name
+    property string placeholderFontFamily: WaznComponents.Style.fontRegular.name
     property bool placeholderFontBold: false
     property int placeholderFontSize: 18
-    property string placeholderColor: MoneroComponents.Style.defaultFontColor
+    property string placeholderColor: WaznComponents.Style.defaultFontColor
     property real placeholderOpacity: 0.35
 
     property alias acceptableInput: input.acceptableInput
@@ -65,11 +66,11 @@ Item {
     property bool borderDisabled: false
     property string borderColor: {
         if(error && input.text !== ""){
-            return MoneroComponents.Style.inputBorderColorInvalid;
+            return WaznComponents.Style.inputBorderColorInvalid;
         } else if(input.activeFocus){
-            return MoneroComponents.Style.inputBorderColorActive;
+            return WaznComponents.Style.inputBorderColorActive;
         } else {
-            return MoneroComponents.Style.inputBorderColorInActive;
+            return WaznComponents.Style.inputBorderColorInActive;
         }
     }
 
@@ -141,15 +142,15 @@ Item {
         }
     }
 
-    MoneroComponents.TextPlain {
+    WaznComponents.TextPlain {
         id: inputLabel
         anchors.top: parent.top
         anchors.left: parent.left
-        font.family: MoneroComponents.Style.fontRegular.name
+        font.family: WaznComponents.Style.fontRegular.name
         font.pixelSize: labelFontSize
         font.bold: labelFontBold
         textFormat: Text.RichText
-        color: MoneroComponents.Style.defaultFontColor
+        color: WaznComponents.Style.defaultFontColor
         onLinkActivated: item.labelLinkActivated()
 
         MouseArea {
@@ -159,7 +160,7 @@ Item {
         }
     }
 
-    MoneroComponents.LabelButton {
+    WaznComponents.LabelButton {
         id: copyButtonId
         text: qsTr("Copy") + translationManager.emptyString
         anchors.right: parent.right
@@ -181,7 +182,7 @@ Item {
         width: parent.width
         clip: true
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             id: placeholderLabel
             visible: input.text ? false : true
             anchors.verticalCenter: parent.verticalCenter
@@ -207,7 +208,7 @@ Item {
         Rectangle {
             anchors.fill: parent
             anchors.topMargin: 1
-            color: item.enabled ? "transparent" : MoneroComponents.Style.inputBoxBackgroundDisabled
+            color: item.enabled ? "transparent" : WaznComponents.Style.inputBoxBackgroundDisabled
         }
 
         Rectangle {
@@ -227,11 +228,11 @@ Item {
             anchors.topMargin: 8
             anchors.left: parent.left
             anchors.leftMargin: 12
-            source: "qrc:///images/moneroIcon-28x28.png"
+            source: "qrc:///images/waznIcon-28x28.png"
             visible: false
         }
 
-        MoneroComponents.Input {
+        WaznComponents.Input {
             id: input
             anchors.fill: parent
             anchors.leftMargin: inlineIcon.visible ? 44 : 0
@@ -246,7 +247,7 @@ Item {
             bottomPadding: 10
             echoMode: isPasswordHidden() ? TextInput.Password : TextInput.Normal
 
-            MoneroComponents.Label {
+            WaznComponents.Label {
                 visible: password || passwordLinked
                 fontSize: 20
                 text: isPasswordHidden() ? FontAwesome.eye : FontAwesome.eyeSlash

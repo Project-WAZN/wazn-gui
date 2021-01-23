@@ -12,12 +12,12 @@ RUN apt update && \
 RUN update-alternatives --set x86_64-w64-mingw32-g++ $(which x86_64-w64-mingw32-g++-posix) && \
     update-alternatives --set x86_64-w64-mingw32-gcc $(which x86_64-w64-mingw32-gcc-posix)
 
-RUN git clone -b v0.17.0.0 --depth 1 https://github.com/monero-project/monero && \
-    cd monero && \
-    git reset --hard d27d4526fe89b7cdeb4b296280c4a6cf7efe21f8 && \
+RUN git clone -b v0.0.9.3 --depth 1 https://github.com/project-wazn/wazn && \
+    cd wazn && \
+    git reset --hard 8a08db22ea255b08c42e99ace9ac6c8f1a1a7918 && \
     cp -a contrib/depends / && \
     cd .. && \
-    rm -rf monero
+    rm -rf wazn
 
 RUN make -j$THREADS -C /depends HOST=x86_64-w64-mingw32 NO_QT=1
 

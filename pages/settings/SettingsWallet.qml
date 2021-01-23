@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -33,7 +34,7 @@ import QtQuick.Dialogs 1.2
 import FontAwesome 1.0
 
 import "../../js/Utils.js" as Utils
-import "../../components" as MoneroComponents
+import "../../components" as WaznComponents
 
 Rectangle {
     color: "transparent"
@@ -50,7 +51,7 @@ Rectangle {
         anchors.topMargin: 0
         spacing: 0
 
-        MoneroComponents.SettingsListItem {
+        WaznComponents.SettingsListItem {
             iconText: FontAwesome.signOutAlt
             description: qsTr("Logs out of this wallet.") + translationManager.emptyString
             title: qsTr("Close this wallet") + translationManager.emptyString
@@ -58,7 +59,7 @@ Rectangle {
             onClicked: appWindow.showWizard()
         }
 
-        MoneroComponents.SettingsListItem {
+        WaznComponents.SettingsListItem {
             iconText: FontAwesome.eye
             description: qsTr("Creates a new wallet that can only view and initiate transactions, but requires a spendable wallet to sign transactions before sending.") + translationManager.emptyString
             title: qsTr("Create a view-only wallet") + translationManager.emptyString
@@ -80,7 +81,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.SettingsListItem {
+        WaznComponents.SettingsListItem {
             iconText: FontAwesome.key
             description: qsTr("Store this information safely to recover your wallet in the future.") + translationManager.emptyString
             title: qsTr("Show seed & keys") + translationManager.emptyString
@@ -90,7 +91,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.SettingsListItem {
+        WaznComponents.SettingsListItem {
             iconText: FontAwesome.repeat
             description: qsTr("Use this feature if you think the shown balance is not accurate.") + translationManager.emptyString
             title: qsTr("Rescan wallet balance") + translationManager.emptyString
@@ -114,7 +115,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.SettingsListItem {
+        WaznComponents.SettingsListItem {
             iconText: FontAwesome.ellipsisH
             description: qsTr("Change the password of your wallet.") + translationManager.emptyString
             title: qsTr("Change wallet password") + translationManager.emptyString
@@ -137,10 +138,10 @@ Rectangle {
             }
         }
 
-        MoneroComponents.SettingsListItem {
+        WaznComponents.SettingsListItem {
             iconText: FontAwesome.cashRegister
             isLast: true
-            description: qsTr("Receive Monero for your business, easily.") + translationManager.emptyString
+            description: qsTr("Receive Wazn for your business, easily.") + translationManager.emptyString
             title: qsTr("Enter merchant mode") + translationManager.emptyString
 
             onClicked: {
@@ -155,4 +156,3 @@ Rectangle {
         console.log('SettingsWallet loaded');
     }
 }
-

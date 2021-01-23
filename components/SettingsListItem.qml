@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 ColumnLayout {
     id: settingsListItem
@@ -28,8 +28,8 @@ ColumnLayout {
             anchors.left: parent.left
             anchors.right: parent.right
             height: 1
-            color: MoneroComponents.Style.dividerColor
-            opacity: MoneroComponents.Style.dividerOpacity
+            color: WaznComponents.Style.dividerColor
+            opacity: WaznComponents.Style.dividerOpacity
         }
 
         Rectangle {
@@ -51,25 +51,25 @@ ColumnLayout {
                 anchors.leftMargin: 16
                 anchors.verticalCenter: parent.verticalCenter
 
-                MoneroComponents.Label {
+                WaznComponents.Label {
                     id: iconLabel
                     fontSize: 32
                     fontFamily: FontAwesome.fontFamilySolid
                     anchors.centerIn: parent
-                    fontColor: MoneroComponents.Style.defaultFontColor
+                    fontColor: WaznComponents.Style.defaultFontColor
                     styleName: "Solid"
                 }
             }
 
-            MoneroComponents.TextPlain {
+            WaznComponents.TextPlain {
                 id: header
                 anchors.left: icon.right
                 anchors.leftMargin: 16
                 anchors.top: parent.top
-                color: MoneroComponents.Style.defaultFontColor
-                opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+                color: WaznComponents.Style.defaultFontColor
+                opacity: WaznComponents.Style.blackTheme ? 1.0 : 0.8
                 font.bold: true
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: WaznComponents.Style.fontRegular.name
                 font.pixelSize: 16
             }
 
@@ -79,8 +79,8 @@ ColumnLayout {
                 anchors.topMargin: 4
                 anchors.left: icon.right
                 anchors.leftMargin: 16
-                color: MoneroComponents.Style.dimmedFontColor
-                font.family: MoneroComponents.Style.fontRegular.name
+                color: WaznComponents.Style.dimmedFontColor
+                font.family: WaznComponents.Style.fontRegular.name
                 font.pixelSize: 15
                 horizontalAlignment: TextInput.AlignLeft
                 wrapMode: Text.WordWrap;
@@ -96,8 +96,8 @@ ColumnLayout {
             anchors.left: parent.left
             anchors.right: parent.right
             height: 1
-            color: MoneroComponents.Style.dividerColor
-            opacity: MoneroComponents.Style.dividerOpacity
+            color: WaznComponents.Style.dividerColor
+            opacity: WaznComponents.Style.dividerOpacity
             visible: settingsListItem.isLast
         }
 
@@ -105,7 +105,7 @@ ColumnLayout {
             cursorShape: Qt.PointingHandCursor
             anchors.fill: parent
             hoverEnabled: true
-            onEntered: root.color = MoneroComponents.Style.titleBarButtonHoverColor
+            onEntered: root.color = WaznComponents.Style.titleBarButtonHoverColor
             onExited: root.color = "transparent"
             onClicked: {
                 settingsListItem.clicked()

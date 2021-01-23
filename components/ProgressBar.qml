@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -27,9 +28,9 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import QtQuick 2.9
-import moneroComponents.Wallet 1.0
+import waznComponents.Wallet 1.0
 
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 Rectangle {
     id: item
@@ -61,27 +62,27 @@ Rectangle {
         anchors.rightMargin: 15
         anchors.fill: parent
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             id: progressText
             anchors.top: parent.top
             anchors.topMargin: 6
-            font.family: MoneroComponents.Style.fontMedium.name
+            font.family: WaznComponents.Style.fontMedium.name
             font.pixelSize: 13
-            font.bold: MoneroComponents.Style.progressBarProgressTextBold
-            color: MoneroComponents.Style.defaultFontColor
+            font.bold: WaznComponents.Style.progressBarProgressTextBold
+            color: WaznComponents.Style.defaultFontColor
             text: qsTr("Synchronizing %1").arg(syncType) + translationManager.emptyString
             height: 18
         }
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             id: progressTextValue
             anchors.top: parent.top
             anchors.topMargin: 6
             anchors.right: parent.right
-            font.family: MoneroComponents.Style.fontMedium.name
+            font.family: WaznComponents.Style.fontMedium.name
             font.pixelSize: 13
-            font.bold: MoneroComponents.Style.progressBarProgressTextBold
-            color: MoneroComponents.Style.defaultFontColor
+            font.bold: WaznComponents.Style.progressBarProgressTextBold
+            color: WaznComponents.Style.defaultFontColor
             height:18
         }
 
@@ -93,17 +94,17 @@ Rectangle {
             anchors.topMargin: 4
             height: 8
             radius: 8
-            color: MoneroComponents.Style.progressBarBackgroundColor
+            color: WaznComponents.Style.progressBarBackgroundColor
 
             states: [
                 State {
                     name: "black";
-                    when: MoneroComponents.Style.blackTheme
-                    PropertyChanges { target: bar; color: MoneroComponents.Style._b_progressBarBackgroundColor}
+                    when: WaznComponents.Style.blackTheme
+                    PropertyChanges { target: bar; color: WaznComponents.Style._b_progressBarBackgroundColor}
                 }, State {
                     name: "white";
-                    when: !MoneroComponents.Style.blackTheme
-                    PropertyChanges { target: bar; color: MoneroComponents.Style._w_progressBarBackgroundColor}
+                    when: !WaznComponents.Style.blackTheme
+                    PropertyChanges { target: bar; color: WaznComponents.Style._w_progressBarBackgroundColor}
                 }
             ]
 

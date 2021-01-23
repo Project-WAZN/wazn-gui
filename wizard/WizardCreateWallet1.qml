@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -33,11 +34,11 @@ import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 Rectangle {
     id: wizardCreateWallet1
-    
+
     color: "transparent"
     property alias pageHeight: pageRoot.height
     property string viewName: "wizardCreateWallet1"
@@ -74,7 +75,7 @@ Rectangle {
                 Layout.topMargin: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.LineEditMulti {
+                WaznComponents.LineEditMulti {
                     id: seed
 
                     spacing: 0
@@ -98,13 +99,13 @@ Rectangle {
                     text: wizardController.walletOptionsSeed
                 }
 
-                MoneroComponents.WarningBox {
+                WaznComponents.WarningBox {
                     Rectangle {
                         anchors.left: parent.left
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         width: 1
-                        color: MoneroComponents.Style.inputBorderColorInActive
+                        color: WaznComponents.Style.inputBorderColorInActive
                     }
 
                     Rectangle {
@@ -112,7 +113,7 @@ Rectangle {
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
                         height: 1
-                        color: MoneroComponents.Style.inputBorderColorInActive
+                        color: WaznComponents.Style.inputBorderColorInActive
                     }
 
                     Rectangle {
@@ -120,11 +121,11 @@ Rectangle {
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         width: 1
-                        color: MoneroComponents.Style.inputBorderColorInActive
+                        color: WaznComponents.Style.inputBorderColorInActive
                     }
 
                     radius: 0
-                    border.color: MoneroComponents.Style.inputBorderColorInActive
+                    border.color: WaznComponents.Style.inputBorderColorInActive
                     border.width: 0
 
                     text: qsTr("This seed is <b>very</b> important to write down and keep secret. It is all you need to backup and restore your wallet.") + translationManager.emptyString
@@ -137,7 +138,7 @@ Rectangle {
                 Layout.topMargin: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.LineEditMulti {
+                WaznComponents.LineEditMulti {
                     id: restoreHeight
 
                     spacing: 0
@@ -156,13 +157,13 @@ Rectangle {
                     text: Utils.roundDownToNearestThousand(wizardController.m_wallet ? wizardController.m_wallet.walletCreationHeight : 0)
                 }
 
-                MoneroComponents.WarningBox {
+                WaznComponents.WarningBox {
                     Rectangle {
                         anchors.left: parent.left
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         width: 1
-                        color: MoneroComponents.Style.inputBorderColorInActive
+                        color: WaznComponents.Style.inputBorderColorInActive
                     }
 
                     Rectangle {
@@ -170,7 +171,7 @@ Rectangle {
                         anchors.left: parent.left
                         anchors.bottom: parent.bottom
                         height: 1
-                        color: MoneroComponents.Style.inputBorderColorInActive
+                        color: WaznComponents.Style.inputBorderColorInActive
                     }
 
                     Rectangle {
@@ -178,11 +179,11 @@ Rectangle {
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         width: 1
-                        color: MoneroComponents.Style.inputBorderColorInActive
+                        color: WaznComponents.Style.inputBorderColorInActive
                     }
 
                     radius: 0
-                    border.color: MoneroComponents.Style.inputBorderColorInActive
+                    border.color: WaznComponents.Style.inputBorderColorInActive
                     border.width: 0
                     text: qsTr("Should you restore your wallet in the future, specifying this block number will recover your wallet quicker.") + translationManager.emptyString
                 }

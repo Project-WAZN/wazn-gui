@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
 //
 // All rights reserved.
@@ -27,13 +28,13 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import QtQuick 2.9
-import "../components" as MoneroComponents
-import "../components/effects" as MoneroEffects
+import "../components" as WaznComponents
+import "../components/effects" as WaznEffects
 
-MoneroEffects.ImageMask {
+WaznEffects.ImageMask {
     id: button
     z: 666
-    color: MoneroComponents.Style.defaultFontColor
+    color: WaznComponents.Style.defaultFontColor
     image: ""
 
     signal clicked(var mouse)

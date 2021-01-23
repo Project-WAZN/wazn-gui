@@ -1,21 +1,22 @@
+Wazn// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -30,8 +31,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
 
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WaznComponents
+import "../components/effects/" as WaznEffects
 
 Item {
     id: dropdown
@@ -39,15 +40,15 @@ Item {
     property alias dataModel: repeater.model
     property string shadowPressedColor
     property string shadowReleasedColor
-    property string pressedColor: MoneroComponents.Style.appWindowBorderColor
-    property string releasedColor: MoneroComponents.Style.titleBarButtonHoverColor
-    property string textColor: MoneroComponents.Style.defaultFontColor
+    property string pressedColor: WaznComponents.Style.appWindowBorderColor
+    property string releasedColor: WaznComponents.Style.titleBarButtonHoverColor
+    property string textColor: WaznComponents.Style.defaultFontColor
     property alias currentIndex: columnid.currentIndex
     readonly property alias expanded: popup.visible
     property int dropdownHeight: 42
     property int fontHeaderSize: 16
     property int fontItemSize: 14
-    property string colorBorder: MoneroComponents.Style.inputBorderColorInActive
+    property string colorBorder: WaznComponents.Style.inputBorderColorInActive
     property string colorHeaderBackground: "transparent"
     property bool headerBorder: true
     property bool headerFontBold: false
@@ -74,14 +75,14 @@ Item {
             anchors.fill: parent
         }
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 12
             anchors.right: dropIndicator.left
             anchors.rightMargin: 12
             elide: Text.ElideRight
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WaznComponents.Style.fontRegular.name
             font.bold: dropdown.headerFontBold
             font.pixelSize: dropdown.fontHeaderSize
             color: dropdown.textColor
@@ -106,7 +107,7 @@ Item {
             ColorOverlay {
                 source: dropdownIcon
                 anchors.fill: dropdownIcon
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
                 rotation: dropdown.expanded ? 180  : 0
                 opacity: 1
             }
@@ -163,26 +164,26 @@ Item {
                         //radius: index === repeater.count - 1 ? 4 : 0
                         color: itemArea.containsMouse || index === columnid.currentIndex || itemArea.containsMouse ? dropdown.releasedColor : dropdown.pressedColor
 
-                        MoneroComponents.TextPlain {
+                        WaznComponents.TextPlain {
                             id: col1Text
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: parent.left
                             anchors.right: col2Text.left
                             anchors.leftMargin: 12
                             anchors.rightMargin: 0
-                            font.family: MoneroComponents.Style.fontRegular.name
+                            font.family: WaznComponents.Style.fontRegular.name
                             font.bold: true
                             font.pixelSize: fontItemSize
                             color: itemArea.containsMouse || index === columnid.currentIndex || itemArea.containsMouse ? "#FA6800" : "#FFFFFF"
                             text: qsTr(column1) + translationManager.emptyString
                         }
 
-                        MoneroComponents.TextPlain {
+                        WaznComponents.TextPlain {
                             id: col2Text
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.right: parent.right
                             anchors.rightMargin: 45
-                            font.family: MoneroComponents.Style.fontRegular.name
+                            font.family: WaznComponents.Style.fontRegular.name
                             font.pixelSize: 14
                             color: "#FFFFFF"
                             text: ""

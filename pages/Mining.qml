@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -29,8 +30,8 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
-import "../components" as MoneroComponents
-import moneroComponents.Wallet 1.0
+import "../components" as WaznComponents
+import waznComponents.Wallet 1.0
 
 Rectangle {
     id: root
@@ -48,35 +49,35 @@ Rectangle {
         anchors.right: parent.right
         spacing: 20
 
-        MoneroComponents.Label {
+        WaznComponents.Label {
             id: soloTitleLabel
             fontSize: 24
             text: qsTr("Solo mining") + translationManager.emptyString
         }
 
-        MoneroComponents.WarningBox {
+        WaznComponents.WarningBox {
             Layout.bottomMargin: 8
             text: qsTr("Mining is only available on local daemons.") + translationManager.emptyString
             visible: persistentSettings.useRemoteNode
         }
 
-        MoneroComponents.WarningBox {
+        WaznComponents.WarningBox {
             Layout.bottomMargin: 8
             text: qsTr("Your daemon must be synchronized before you can start mining") + translationManager.emptyString
             visible: !persistentSettings.useRemoteNode && !appWindow.daemonSynced
         }
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             id: soloMainLabel
-            text: qsTr("Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.\n\nMining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!") + translationManager.emptyString
+            text: qsTr("Mining with your computer helps strengthen the Wazn network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.\n\nMining also gives you a small chance to earn some Wazn. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!") + translationManager.emptyString
             wrapMode: Text.Wrap
             Layout.fillWidth: true
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WaznComponents.Style.fontRegular.name
             font.pixelSize: 14
-            color: MoneroComponents.Style.defaultFontColor
+            color: WaznComponents.Style.defaultFontColor
         }
 
-        MoneroComponents.WarningBox {
+        WaznComponents.WarningBox {
             id: warningLabel
             Layout.topMargin: 8
             Layout.bottomMargin: 8
@@ -93,9 +94,9 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.alignment : Qt.AlignTop | Qt.AlignLeft
 
-                MoneroComponents.Label {
+                WaznComponents.Label {
                     id: soloMinerThreadsLabel
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: qsTr("CPU threads") + translationManager.emptyString
                     fontSize: 16
                     wrapMode: Text.WordWrap
@@ -106,24 +107,24 @@ Rectangle {
                 Layout.fillWidth: true
                 spacing: 16
 
-                MoneroComponents.LineEdit {
+                WaznComponents.LineEdit {
                     id: soloMinerThreadsLine
                     Layout.minimumWidth: 200
                     text: "1"
                     validator: IntValidator { bottom: 1; top: idealThreadCount }
                 }
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     id: numAvailableThreadsText
                     text: qsTr("Max # of CPU threads available for mining: ") + idealThreadCount + translationManager.emptyString
                     wrapMode: Text.WordWrap
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 14
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                 }
 
                 RowLayout {
-                    MoneroComponents.StandardButton {
+                    WaznComponents.StandardButton {
                         id: autoRecommendedThreadsButton
                         small: true
                         text: qsTr("Use recommended # of threads") + translationManager.emptyString
@@ -134,7 +135,7 @@ Rectangle {
                         }
                     }
 
-                    MoneroComponents.StandardButton {
+                    WaznComponents.StandardButton {
                         id: autoSetMaxThreadsButton
                         small: true
                         text: qsTr("Use all threads") + translationManager.emptyString
@@ -147,7 +148,7 @@ Rectangle {
                 }
 
                 RowLayout {
-                    MoneroComponents.CheckBox {
+                    WaznComponents.CheckBox {
                         id: backgroundMining
                         enabled: startSoloMinerButton.enabled
                         checked: persistentSettings.allow_background_mining
@@ -159,7 +160,7 @@ Rectangle {
                 RowLayout {
                     // Disable this option until stable
                     visible: false
-                    MoneroComponents.CheckBox {
+                    WaznComponents.CheckBox {
                         id: ignoreBattery
                         enabled: startSoloMinerButton.enabled
                         checked: !persistentSettings.miningIgnoreBattery
@@ -172,9 +173,9 @@ Rectangle {
             ColumnLayout {
                 Layout.alignment : Qt.AlignTop | Qt.AlignLeft
 
-                MoneroComponents.Label {
+                WaznComponents.Label {
                     id: manageSoloMinerLabel
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: qsTr("Manage miner") + translationManager.emptyString
                     fontSize: 16
                     wrapMode: Text.Wrap
@@ -187,7 +188,7 @@ Rectangle {
                 spacing: 16
 
                 RowLayout {
-                    MoneroComponents.StandardButton {
+                    WaznComponents.StandardButton {
                         visible: true
                         id: startSoloMinerButton
                         small: true
@@ -207,7 +208,7 @@ Rectangle {
                         }
                     }
 
-                    MoneroComponents.StandardButton {
+                    WaznComponents.StandardButton {
                         visible: true
                         id: stopSoloMinerButton
                         small: true
@@ -224,9 +225,9 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.alignment : Qt.AlignTop | Qt.AlignLeft
 
-                MoneroComponents.Label {
+                WaznComponents.Label {
                     id: statusLabel
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: qsTr("Status") + translationManager.emptyString
                     fontSize: 16
                 }
@@ -236,7 +237,7 @@ Rectangle {
                 Layout.fillWidth: true
                 spacing: 16
 
-                MoneroComponents.LineEditMulti {
+                WaznComponents.LineEditMulti {
                     id: statusText
                     Layout.minimumWidth: 300
                     text: qsTr("Not mining") + translationManager.emptyString
@@ -282,7 +283,7 @@ Rectangle {
         walletManager.miningStatusAsync();
     }
 
-    MoneroComponents.StandardDialog {
+    WaznComponents.StandardDialog {
         id: errorPopup
         cancelVisible: false
     }

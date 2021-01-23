@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -57,7 +58,7 @@ signals:
 private:
     QLocalServer *m_server;
     QString m_queuedCmd;
-    QFileInfo m_socketFile = QFileInfo(QString(QDir::tempPath() + "/xmr-gui_%2.sock").arg(getAccountName()));
+    QFileInfo m_socketFile = QFileInfo(QString(QDir::tempPath() + "/wazn-gui_%2.sock").arg(getAccountName()));
 };
 
 #endif // IPC_H

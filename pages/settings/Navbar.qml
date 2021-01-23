@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -33,10 +34,10 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import "../../js/Windows.js" as Windows
 import "../../js/Utils.js" as Utils
-import "../../components" as MoneroComponents
+import "../../components" as WaznComponents
 import "../../pages"
 import "."
-import moneroComponents.Clipboard 1.0
+import waznComponents.Clipboard 1.0
 
 Rectangle {
     Layout.fillWidth: true
@@ -53,12 +54,12 @@ Rectangle {
             id: grid
             Layout.alignment: Qt.AlignHCenter
             columnSpacing: 0
-            property string fontColorActive: MoneroComponents.Style.blackTheme ? "white" : "white"
-            property string fontColorInActive: MoneroComponents.Style.blackTheme ? "white" : MoneroComponents.Style.dimmedFontColor
+            property string fontColorActive: WaznComponents.Style.blackTheme ? "white" : "white"
+            property string fontColorInActive: WaznComponents.Style.blackTheme ? "white" : WaznComponents.Style.dimmedFontColor
             property int fontSize: 15
             property bool fontBold: true
-            property var fontFamily: MoneroComponents.Style.fontRegular.name
-            property string borderColor: MoneroComponents.Style.blackTheme ? "#808080" : "#B9B9B9"
+            property var fontFamily: WaznComponents.Style.fontRegular.name
+            property string borderColor: WaznComponents.Style.blackTheme ? "#808080" : "#B9B9B9"
             property int textMargin: {
                 // left-right margins for a given cell
                 if(appWindow.width < 890){
@@ -120,7 +121,7 @@ Rectangle {
                 Layout.preferredHeight: 32
                 spacing: 0
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -131,7 +132,7 @@ Rectangle {
                     height: 30
                     Layout.fillWidth: true
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: navWalletText
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -152,7 +153,7 @@ Rectangle {
                     }
                 }
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -172,7 +173,7 @@ Rectangle {
                 Layout.minimumWidth: 72
                 spacing: 0
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -183,7 +184,7 @@ Rectangle {
                     height: 30
                     Layout.fillWidth: true
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: navUIText
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -204,7 +205,7 @@ Rectangle {
                     }
                 }
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -225,7 +226,7 @@ Rectangle {
                 Layout.minimumWidth: 72
                 spacing: 0
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -236,7 +237,7 @@ Rectangle {
                     height: 30
                     Layout.fillWidth: true
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: navNodeText
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -257,7 +258,7 @@ Rectangle {
                     }
                 }
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -278,7 +279,7 @@ Rectangle {
                 Layout.minimumWidth: 72
                 spacing: 0
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -289,7 +290,7 @@ Rectangle {
                     height: 30
                     Layout.fillWidth: true
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: navLogText
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -310,7 +311,7 @@ Rectangle {
                     }
                 }
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -331,7 +332,7 @@ Rectangle {
                 Layout.minimumWidth: 72
                 spacing: 0
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
@@ -342,7 +343,7 @@ Rectangle {
                     height: 30
                     Layout.fillWidth: true
 
-                    MoneroComponents.TextPlain {
+                    WaznComponents.TextPlain {
                         id: navInfoText
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -363,7 +364,7 @@ Rectangle {
                     }
                 }
 
-                Rectangle { 
+                Rectangle {
                     color: grid.borderColor
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true

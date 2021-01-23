@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -29,7 +30,7 @@
 import QtQuick 2.9
 import QtGraphicalEffects 1.0
 
-import "../" as MoneroComponents
+import "../" as WaznComponents
 import FontAwesome 1.0
 
 Item {
@@ -44,7 +45,7 @@ Item {
     property string fontAwesomeFallbackStyle: "Solid"
     property int fontAwesomeFallbackSize: 16
     property double fontAwesomeFallbackOpacity: 0.8
-    property string fontAwesomeFallbackColor: MoneroComponents.Style.defaultFontColor
+    property string fontAwesomeFallbackColor: WaznComponents.Style.defaultFontColor
 
     property alias fontAwesomeFallback: fontAwesomeFallback
     property alias svgMask: svgMask

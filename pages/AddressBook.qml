@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -31,14 +32,14 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WaznComponents
+import "../components/effects/" as WaznEffects
 
 import "../js/TxUtils.js" as TxUtils
-import moneroComponents.AddressBook 1.0
-import moneroComponents.AddressBookModel 1.0
-import moneroComponents.Clipboard 1.0
-import moneroComponents.NetworkType 1.0
+import waznComponents.AddressBook 1.0
+import waznComponents.AddressBookModel 1.0
+import waznComponents.Clipboard 1.0
+import waznComponents.NetworkType 1.0
 import FontAwesome 1.0
 
 Rectangle {
@@ -70,8 +71,8 @@ Rectangle {
             Text {
                 id: titleLabel
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.defaultFontColor
-                font.family: MoneroComponents.Style.fontRegular.name
+                color: WaznComponents.Style.defaultFontColor
+                font.family: WaznComponents.Style.fontRegular.name
                 font.pixelSize: 32
                 horizontalAlignment: TextInput.AlignLeft
                 wrapMode: Text.WordWrap;
@@ -83,18 +84,18 @@ Rectangle {
 
             Text {
                 Layout.fillWidth: true
-                color: MoneroComponents.Style.dimmedFontColor
-                font.family: MoneroComponents.Style.fontRegular.name
+                color: WaznComponents.Style.dimmedFontColor
+                font.family: WaznComponents.Style.fontRegular.name
                 font.pixelSize: 16
                 horizontalAlignment: TextInput.AlignLeft
                 wrapMode: Text.WordWrap;
                 leftPadding: 0
                 topPadding: 0
-                text: qsTr("This makes it easier to send or receive Monero and reduces errors when typing in addresses manually.") + translationManager.emptyString
+                text: qsTr("This makes it easier to send or receive Wazn and reduces errors when typing in addresses manually.") + translationManager.emptyString
                 width: parent.width
             }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 id: addFirstEntryButton
                 Layout.topMargin: 20
                 text: qsTr("Add an address") + translationManager.emptyString
@@ -109,7 +110,7 @@ Rectangle {
             visible: addressBookListView.count >= 1
             spacing: 0
 
-            MoneroComponents.Label {
+            WaznComponents.Label {
                 Layout.bottomMargin: 20
                 fontSize: 32
                 text: qsTr("Address book") + translationManager.emptyString
@@ -143,16 +144,16 @@ Rectangle {
                         }
 
                         Rectangle {
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: WaznComponents.Style.appWindowBorderColor
                             anchors.right: parent.right
                             anchors.left: parent.left
                             anchors.top: parent.top
                             height: 1
 
-                            MoneroEffects.ColorTransition {
+                            WaznEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: WaznComponents.Style._b_appWindowBorderColor
+                                whiteColor: WaznComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -162,9 +163,9 @@ Rectangle {
                             anchors.rightMargin: 110
                             color: "transparent"
 
-                            MoneroComponents.Label {
+                            WaznComponents.Label {
                                 id: descriptionLabel
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.left
                                 anchors.leftMargin: 6
@@ -174,15 +175,15 @@ Rectangle {
                                 textWidth: addressLabel.x - descriptionLabel.x - 1
                             }
 
-                            MoneroComponents.Label {
+                            WaznComponents.Label {
                                 id: addressLabel
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.right
                                 anchors.leftMargin: -addressLabel.width - 5
 
                                 fontSize: 16
-                                fontFamily: MoneroComponents.Style.fontMonoRegular.name;
+                                fontFamily: WaznComponents.Style.fontMonoRegular.name;
                                 text: TxUtils.addressTruncatePretty(address, mainLayout.width < 540 ? 1 : (mainLayout.width < 700 ? 2 : 3));
                             }
 
@@ -203,10 +204,10 @@ Rectangle {
                             height: 21
                             spacing: 10
 
-                            MoneroComponents.IconButton {
+                            WaznComponents.IconButton {
                                 id: sendToButton
                                 image: "qrc:///images/arrow-right-in-circle-outline-medium-white.svg"
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 opacity: 0.5
                                 Layout.preferredWidth: 20
                                 Layout.preferredHeight: 20
@@ -215,10 +216,10 @@ Rectangle {
                                 }
                             }
 
-                            MoneroComponents.IconButton {
+                            WaznComponents.IconButton {
                                 id: renameButton
                                 image: "qrc:///images/edit.svg"
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 opacity: 0.5
                                 Layout.preferredWidth: 23
                                 Layout.preferredHeight: 21
@@ -229,12 +230,12 @@ Rectangle {
                                 }
                             }
 
-                            MoneroComponents.IconButton {
+                            WaznComponents.IconButton {
                                 id: copyButton
                                 image: "qrc:///images/copy.svg"
                                 Layout.preferredWidth: 16
                                 Layout.preferredHeight: 21
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 opacity: 0.5
 
                                 onClicked: {
@@ -250,18 +251,18 @@ Rectangle {
 
             Rectangle {
                 id: border2
-                color: MoneroComponents.Style.appWindowBorderColor
+                color: WaznComponents.Style.appWindowBorderColor
                 Layout.fillWidth: true
                 height: 1
 
-                MoneroEffects.ColorTransition {
+                WaznEffects.ColorTransition {
                     targetObj: border2
-                    blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                    whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                    blackColor: WaznComponents.Style._b_appWindowBorderColor
+                    whiteColor: WaznComponents.Style._w_appWindowBorderColor
                 }
             }
 
-            MoneroComponents.CheckBox {
+            WaznComponents.CheckBox {
                 id: addNewEntryCheckbox
                 border: false
                 uncheckedIcon: FontAwesome.plusCircle
@@ -283,13 +284,13 @@ Rectangle {
             visible: false
             spacing: 0
 
-            MoneroComponents.Label {
+            WaznComponents.Label {
                 fontSize: 32
                 wrapMode: Text.WordWrap
                 text: (root.editEntry ? qsTr("Edit an address") : qsTr("Add an address")) + translationManager.emptyString
             }
 
-            MoneroComponents.LineEditMulti {
+            WaznComponents.LineEditMulti {
                 id: addressLine
                 Layout.topMargin: 20
                 labelText: "<style type='text/css'>a {text-decoration: none; color: #858585; font-size: 14px;}</style> %1"
@@ -314,8 +315,8 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.InlineButton {
-                    buttonColor: MoneroComponents.Style.orange
+                WaznComponents.InlineButton {
+                    buttonColor: WaznComponents.Style.orange
                     fontFamily: FontAwesome.fontFamily
                     text: FontAwesome.qrcode
                     visible : appWindow.qrScannerEnabled && !addressLine.text
@@ -326,7 +327,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 id: resolveButton
                 Layout.topMargin: 10
                 text: qsTr("Resolve") + translationManager.emptyString
@@ -365,7 +366,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.LineEditMulti {
+            WaznComponents.LineEditMulti {
                 id: descriptionLine
                 Layout.topMargin: 20
                 labelText: "<style type='text/css'>a {text-decoration: none; color: #858585; font-size: 14px;}</style> %1"
@@ -374,7 +375,7 @@ Rectangle {
             }
             RowLayout {
                 Layout.topMargin: 20
-                MoneroComponents.StandardButton {
+                WaznComponents.StandardButton {
                     id: addButton
                     text: (root.editEntry ? qsTr("Save") : qsTr("Add")) + translationManager.emptyString
                     enabled: root.checkInformation(addressLine.text, appWindow.persistentSettings.nettype)
@@ -406,7 +407,7 @@ Rectangle {
                     Layout.leftMargin: 20
                     font.pixelSize: 16
                     font.bold: false
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: qsTr("Cancel") + translationManager.emptyString
 
                     MouseArea {
@@ -423,7 +424,7 @@ Rectangle {
                     Layout.leftMargin: 20
                     font.pixelSize: 16
                     font.bold: false
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: qsTr("Delete") + translationManager.emptyString
 
                     MouseArea {
@@ -491,7 +492,7 @@ Rectangle {
       oaPopup.open()
     }
 
-    MoneroComponents.StandardDialog {
+    WaznComponents.StandardDialog {
         // dynamically change onclose handler
         property var onCloseCallback
         id: oaPopup

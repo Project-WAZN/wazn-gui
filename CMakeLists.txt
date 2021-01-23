@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
-project(monero-gui)
+project(wazn-gui)
 
 message(STATUS "Initiating compile using CMake ${CMAKE_VERSION}")
 
-set(VERSION_MAJOR "17")
-set(VERSION_MINOR "1")
-set(VERSION_REVISION "9")
+set(VERSION_MAJOR "0")
+set(VERSION_MINOR "9")
+set(VERSION_REVISION "3")
 set(VERSION "0.${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}")
 
 option(STATIC "Link libraries statically, requires static Qt")
@@ -13,7 +13,7 @@ option(STATIC "Link libraries statically, requires static Qt")
 option(USE_DEVICE_TREZOR "Trezor support compilation" ON)
 option(ENABLE_PASS_STRENGTH_METER "Enable zxcvbn library for password strength" OFF)
 option(WITH_SCANNER "Enable webcam QR scanner" OFF)
-option(DEV_MODE "Checkout latest monero master on build" OFF)
+option(DEV_MODE "Checkout latest WAZN master on build" OFF)
 
 list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_SOURCE_DIR}/cmake")
 include(CheckCCompilerFlag)
@@ -44,11 +44,11 @@ if(NOT MANUAL_SUBMODULES)
         endif()
       endfunction ()
       message(STATUS "Checking submodules")
-      check_submodule(monero)
+      check_submodule(wazn)
     else()
-      execute_process(COMMAND ${GIT_EXECUTABLE} fetch WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/monero RESULT_VARIABLE GIT_FETCH_RESULT)
-      execute_process(COMMAND ${GIT_EXECUTABLE} checkout -f origin/master WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/monero RESULT_VARIABLE GIT_CHECKOUT_MASTER_RESULT)
-      execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --force --recursive WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/monero RESULT_VARIABLE GIT_SUBMODULE_UPDATE_RESULT)
+      execute_process(COMMAND ${GIT_EXECUTABLE} fetch WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/wazn RESULT_VARIABLE GIT_FETCH_RESULT)
+      execute_process(COMMAND ${GIT_EXECUTABLE} checkout -f origin/master WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/wazn RESULT_VARIABLE GIT_CHECKOUT_MASTER_RESULT)
+      execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --force --recursive WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/wazn RESULT_VARIABLE GIT_SUBMODULE_UPDATE_RESULT)
       if(NOT GIT_FETCH_RESULT EQUAL "0" OR NOT GIT_CHECKOUT_MASTER_RESULT EQUAL "0" OR NOT GIT_SUBMODULE_UPDATE_RESULT EQUAL "0")
         message(FATAL_ERROR "Updating git submodule to master (-DDEV_MODE=ON) failed")
       endif()
@@ -56,17 +56,17 @@ if(NOT MANUAL_SUBMODULES)
   endif()
 endif()
 
-add_subdirectory(monero)
+add_subdirectory(wazn)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set_property(TARGET wallet_merged PROPERTY FOLDER "monero")
-get_directory_property(ARCH_WIDTH DIRECTORY "monero" DEFINITION ARCH_WIDTH)
-get_directory_property(UNBOUND_LIBRARY DIRECTORY "monero" DEFINITION UNBOUND_LIBRARY)
-get_directory_property(DEVICE_TREZOR_READY DIRECTORY "monero" DEFINITION DEVICE_TREZOR_READY)
-get_directory_property(TREZOR_DEP_LIBS DIRECTORY "monero" DEFINITION TREZOR_DEP_LIBS)
+set_property(TARGET wallet_merged PROPERTY FOLDER "wazn")
+get_directory_property(ARCH_WIDTH DIRECTORY "wazn" DEFINITION ARCH_WIDTH)
+get_directory_property(UNBOUND_LIBRARY DIRECTORY "wazn" DEFINITION UNBOUND_LIBRARY)
+get_directory_property(DEVICE_TREZOR_READY DIRECTORY "wazn" DEFINITION DEVICE_TREZOR_READY)
+get_directory_property(TREZOR_DEP_LIBS DIRECTORY "wazn" DEFINITION TREZOR_DEP_LIBS)
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
   add_definitions(-DQT_NO_DEBUG)
@@ -77,7 +77,7 @@ if(STATIC)
   set(Boost_USE_STATIC_LIBS ON)
   set(Boost_USE_STATIC_RUNTIME ON)
   set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ${CMAKE_FIND_LIBRARY_SUFFIXES})
-  add_definitions(-DMONERO_GUI_STATIC)
+  add_definitions(-DWAZN_GUI_STATIC)
 endif()
 
 # Include password strength library
@@ -90,27 +90,27 @@ endif()
 include(CMakePackageConfigHelpers)
 
 # force version update
-function (monero_gui_add_library_with_deps)
-  cmake_parse_arguments(MONERO_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
-  source_group("${MONERO_ADD_LIBRARY_NAME}" FILES ${MONERO_ADD_LIBRARY_SOURCES})
+function (wazn_gui_add_library_with_deps)
+  cmake_parse_arguments(WAZN_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
+  source_group("${WAZN_ADD_LIBRARY_NAME}" FILES ${WAZN_ADD_LIBRARY_SOURCES})
 
   # Define a ("virtual") object library and an actual library that links those
   # objects together. The virtual libraries can be arbitrarily combined to link
   # any subset of objects into one library archive. This is used for releasing
   # libwallet, which combines multiple components.
-  set(objlib obj_${MONERO_ADD_LIBRARY_NAME})
-  add_library(${objlib} OBJECT ${MONERO_ADD_LIBRARY_SOURCES})
-  add_library("${MONERO_ADD_LIBRARY_NAME}" $<TARGET_OBJECTS:${objlib}>)
-  if (MONERO_ADD_LIBRARY_DEPENDS)
-    add_dependencies(${objlib} ${MONERO_ADD_LIBRARY_DEPENDS})
+  set(objlib obj_${WAZN_ADD_LIBRARY_NAME})
+  add_library(${objlib} OBJECT ${WAZN_ADD_LIBRARY_SOURCES})
+  add_library("${WAZN_ADD_LIBRARY_NAME}" $<TARGET_OBJECTS:${objlib}>)
+  if (WAZN_ADD_LIBRARY_DEPENDS)
+    add_dependencies(${objlib} ${WAZN_ADD_LIBRARY_DEPENDS})
   endif()
-  set_property(TARGET "${MONERO_ADD_LIBRARY_NAME}" PROPERTY FOLDER "libs")
+  set_property(TARGET "${WAZN_ADD_LIBRARY_NAME}" PROPERTY FOLDER "libs")
   target_compile_definitions(${objlib}
-    PRIVATE $<TARGET_PROPERTY:${MONERO_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)
+    PRIVATE $<TARGET_PROPERTY:${WAZN_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)
 endfunction ()
 
-function (monero_gui_add_library name)
-    monero_gui_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
+function (wazn_gui_add_library name)
+    wazn_gui_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
 endfunction()
 
 include_directories(${EASYLOGGING_INCLUDE})
@@ -118,7 +118,7 @@ link_directories(${EASYLOGGING_LIBRARY_DIRS})
 
 
 include(VersionGui)
-monero_gui_add_library(gui_version SOURCES version.js DEPENDS genversiongui)
+wazn_gui_add_library(gui_version SOURCES version.js DEPENDS genversiongui)
 
 message(STATUS "${CMAKE_MODULE_PATH}")
 

@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2020, The Monero Project
 //
 // All rights reserved.
@@ -30,8 +31,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
 
-import moneroComponents.Clipboard 1.0
-import "../components" as MoneroComponents
+import waznComponents.Clipboard 1.0
+import "../components" as WaznComponents
 
 Rectangle {
     id: root
@@ -40,10 +41,10 @@ Rectangle {
     // TODO: implement without hardcoding sizes
     width: 580
     height: 400
-    color: MoneroComponents.Style.blackTheme ? "black" : "white"
+    color: WaznComponents.Style.blackTheme ? "black" : "white"
     visible: false
     radius: 10
-    border.color: MoneroComponents.Style.blackTheme ? Qt.rgba(255, 255, 255, 0.25) : Qt.rgba(0, 0, 0, 0.25)
+    border.color: WaznComponents.Style.blackTheme ? Qt.rgba(255, 255, 255, 0.25) : Qt.rgba(0, 0, 0, 0.25)
     border.width: 1
     Keys.enabled: true
     Keys.onEscapePressed: {
@@ -80,7 +81,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
 
-            MoneroComponents.Label {
+            WaznComponents.Label {
                 fontSize: 18
                 fontFamily: "Arial"
                 horizontalAlignment: Text.AlignHCenter
@@ -108,7 +109,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.LineEditMulti {
+        WaznComponents.LineEditMulti {
             visible: !appWindow.viewOnly
             Layout.leftMargin: 25
             Layout.rightMargin: 25
@@ -121,7 +122,7 @@ Rectangle {
             fontSize: 16
         }
 
-        MoneroComponents.LineEditMulti {
+        WaznComponents.LineEditMulti {
             visible: appWindow.viewOnly
             Layout.leftMargin: 25
             borderDisabled: true
@@ -140,7 +141,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 50
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 id: openFolderButton
                 visible: appWindow.viewOnly
                 text: qsTr("Open folder") + translationManager.emptyString;
@@ -151,7 +152,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 id: doneButton
                 text: qsTr("Done") + translationManager.emptyString;
                 width: 200

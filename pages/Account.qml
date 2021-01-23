@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -33,14 +34,14 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WaznComponents
+import "../components/effects/" as WaznEffects
 
-import moneroComponents.Clipboard 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.TransactionHistory 1.0
-import moneroComponents.TransactionHistoryModel 1.0
+import waznComponents.Clipboard 1.0
+import waznComponents.Wallet 1.0
+import waznComponents.WalletManager 1.0
+import waznComponents.TransactionHistory 1.0
+import waznComponents.TransactionHistoryModel 1.0
 import "../js/TxUtils.js" as TxUtils
 
 Rectangle {
@@ -82,7 +83,7 @@ Rectangle {
             visible: !selectAndSend
             spacing: 0
 
-            MoneroComponents.LabelSubheader {
+            WaznComponents.LabelSubheader {
                 Layout.fillWidth: true
                 fontSize: 24
                 textFormat: Text.RichText
@@ -92,27 +93,27 @@ Rectangle {
             RowLayout {
                 Layout.topMargin: 22
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     text: qsTr("Total balance: ") + translationManager.emptyString
                     Layout.fillWidth: true
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     font.pixelSize: 16
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     themeTransition: false
                 }
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     id: balanceAll
-                    font.family: MoneroComponents.Style.fontMonoRegular.name;
+                    font.family: WaznComponents.Style.fontMonoRegular.name;
                     font.pixelSize: 16
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
 
                     MouseArea {
                         hoverEnabled: true
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onEntered: parent.color = MoneroComponents.Style.orange
-                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                        onEntered: parent.color = WaznComponents.Style.orange
+                        onExited: parent.color = WaznComponents.Style.defaultFontColor
                         onClicked: {
                             console.log("Copied to clipboard");
                             clipboard.setText(parent.text);
@@ -125,27 +126,27 @@ Rectangle {
             RowLayout {
                 Layout.topMargin: 10
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     text: qsTr("Total unlocked balance: ") + translationManager.emptyString
                     Layout.fillWidth: true
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     font.pixelSize: 16
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     themeTransition: false
                 }
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     id: unlockedBalanceAll
-                    font.family: MoneroComponents.Style.fontMonoRegular.name;
+                    font.family: WaznComponents.Style.fontMonoRegular.name;
                     font.pixelSize: 16
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
 
                     MouseArea {
                         hoverEnabled: true
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onEntered: parent.color = MoneroComponents.Style.orange
-                        onExited: parent.color = MoneroComponents.Style.defaultFontColor
+                        onEntered: parent.color = WaznComponents.Style.orange
+                        onExited: parent.color = WaznComponents.Style.defaultFontColor
                         onClicked: {
                             console.log("Copied to clipboard");
                             clipboard.setText(parent.text);
@@ -160,7 +161,7 @@ Rectangle {
             id: addressRow
             spacing: 0
 
-            MoneroComponents.LabelSubheader {
+            WaznComponents.LabelSubheader {
                 Layout.fillWidth: true
                 fontSize: 24
                 textFormat: Text.RichText
@@ -193,17 +194,17 @@ Rectangle {
                         color: "transparent"
 
                         Rectangle {
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: WaznComponents.Style.appWindowBorderColor
                             anchors.right: parent.right
                             anchors.left: parent.left
                             anchors.top: parent.top
                             height: 1
                             visible: index !== 0
 
-                            MoneroEffects.ColorTransition {
+                            WaznEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: WaznComponents.Style._b_appWindowBorderColor
+                                whiteColor: WaznComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -213,9 +214,9 @@ Rectangle {
                             anchors.rightMargin: 80
                             color: "transparent"
 
-                            MoneroComponents.Label {
+                            WaznComponents.Label {
                                 id: idLabel
-                                color: index === currentAccountIndex ? MoneroComponents.Style.defaultFontColor : "#757575"
+                                color: index === currentAccountIndex ? WaznComponents.Style.defaultFontColor : "#757575"
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.left
                                 anchors.leftMargin: 6
@@ -224,35 +225,35 @@ Rectangle {
                                 themeTransition: false
                             }
 
-                            MoneroComponents.Label {
+                            WaznComponents.Label {
                                 id: nameLabel
-                                color: MoneroComponents.Style.dimmedFontColor
+                                color: WaznComponents.Style.dimmedFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: idLabel.right
                                 anchors.leftMargin: 6
-                                fontSize: 16 
+                                fontSize: 16
                                 text: label
                                 elide: Text.ElideRight
                                 textWidth: addressLabel.x - nameLabel.x - 1
                                 themeTransition: false
                             }
 
-                            MoneroComponents.Label {
+                            WaznComponents.Label {
                                 id: addressLabel
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: mainLayout.width >= 590 ? balanceTextLabel.left : balanceNumberLabel.left
                                 anchors.leftMargin: -addressLabel.width - 30
                                 fontSize: 16
-                                fontFamily: MoneroComponents.Style.fontMonoRegular.name;
+                                fontFamily: WaznComponents.Style.fontMonoRegular.name;
                                 text: TxUtils.addressTruncatePretty(address, mainLayout.width < 740 ? 1 : (mainLayout.width < 900 ? 2 : 3))
                                 themeTransition: false
                             }
 
-                            MoneroComponents.Label {
+                            WaznComponents.Label {
                                 id: balanceTextLabel
                                 visible: mainLayout.width >= 590
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: balanceNumberLabel.left
                                 anchors.leftMargin: -balanceTextLabel.width - 5
@@ -261,14 +262,14 @@ Rectangle {
                                 themeTransition: false
                             }
 
-                            MoneroComponents.Label {
+                            WaznComponents.Label {
                                 id: balanceNumberLabel
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.right
                                 anchors.leftMargin: -balanceNumberLabel.width
                                 fontSize: 16
-                                fontFamily: MoneroComponents.Style.fontMonoRegular.name;
+                                fontFamily: WaznComponents.Style.fontMonoRegular.name;
                                 text: balance
                                 elide: Text.ElideRight
                                 textWidth: mainLayout.width < 660 ? 70 : 135
@@ -279,7 +280,7 @@ Rectangle {
                                 cursorShape: Qt.PointingHandCursor
                                 anchors.fill: parent
                                 hoverEnabled: true
-                                onEntered: tableItem2.color = MoneroComponents.Style.titleBarButtonHoverColor
+                                onEntered: tableItem2.color = WaznComponents.Style.titleBarButtonHoverColor
                                 onExited: tableItem2.color = "transparent"
                                 onClicked: {
                                     appWindow.currentWallet.switchSubaddressAccount(index);
@@ -296,10 +297,10 @@ Rectangle {
                             height: 21
                             spacing: 10
 
-                            MoneroComponents.IconButton {
+                            WaznComponents.IconButton {
                                 id: renameButton
                                 image: "qrc:///images/edit.svg"
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 opacity: 0.5
                                 Layout.preferredWidth: 23
                                 Layout.preferredHeight: 21
@@ -307,10 +308,10 @@ Rectangle {
                                 onClicked: pageAccount.renameSubaddressAccountLabel(index);
                             }
 
-                            MoneroComponents.IconButton {
+                            WaznComponents.IconButton {
                                 id: copyButton
                                 image: "qrc:///images/copy.svg"
-                                color: MoneroComponents.Style.defaultFontColor
+                                color: WaznComponents.Style.defaultFontColor
                                 opacity: 0.5
                                 Layout.preferredWidth: 16
                                 Layout.preferredHeight: 21
@@ -331,19 +332,19 @@ Rectangle {
             }
 
             Rectangle {
-                color: MoneroComponents.Style.appWindowBorderColor
+                color: WaznComponents.Style.appWindowBorderColor
                 Layout.fillWidth: true
                 height: 1
 
-                MoneroEffects.ColorTransition {
+                WaznEffects.ColorTransition {
                     targetObj: parent
-                    blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                    whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                    blackColor: WaznComponents.Style._b_appWindowBorderColor
+                    whiteColor: WaznComponents.Style._w_appWindowBorderColor
                 }
             }
 
-            MoneroComponents.CheckBox { 
-                id: addNewAccountCheckbox 
+            WaznComponents.CheckBox {
+                id: addNewAccountCheckbox
                 visible: !selectAndSend
                 border: false
                 uncheckedIcon: FontAwesome.plusCircle
@@ -353,8 +354,8 @@ Rectangle {
                 iconOnTheLeft: true
                 Layout.fillWidth: true
                 Layout.topMargin: 10
-                text: qsTr("Create new account") + translationManager.emptyString; 
-                onClicked: { 
+                text: qsTr("Create new account") + translationManager.emptyString;
+                onClicked: {
                     inputDialog.labelText = qsTr("Set the label of the new account:") + translationManager.emptyString
                     inputDialog.onAcceptedCallback = function() {
                         appWindow.currentWallet.subaddressAccount.addRow(inputDialog.inputText)
@@ -376,7 +377,7 @@ Rectangle {
             appWindow.currentWallet.subaddress.refresh(appWindow.currentWallet.currentSubaddressAccount)
 
             balanceAll.text = walletManager.displayAmount(appWindow.currentWallet.balanceAll())
-            unlockedBalanceAll.text = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll()) 
+            unlockedBalanceAll.text = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll())
         }
     }
 

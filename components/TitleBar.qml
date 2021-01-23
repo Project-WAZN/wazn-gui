@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -32,8 +33,8 @@ import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.2
 
 import FontAwesome 1.0
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WaznComponents
+import "effects/" as WaznEffects
 
 Rectangle {
     id: root
@@ -72,16 +73,16 @@ Rectangle {
         }
     ]
 
-    MoneroEffects.GradientBackground {
+    WaznEffects.GradientBackground {
         anchors.fill: parent
         duration: 300
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.titleBarBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.titleBarBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_titleBarBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_titleBarBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_titleBarBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_titleBarBackgroundGradientStop
+        fallBackColor: WaznComponents.Style.middlePanelBackgroundColor
+        initialStartColor: WaznComponents.Style.titleBarBackgroundGradientStart
+        initialStopColor: WaznComponents.Style.titleBarBackgroundGradientStop
+        blackColorStart: WaznComponents.Style._b_titleBarBackgroundGradientStart
+        blackColorStop: WaznComponents.Style._b_titleBarBackgroundGradientStop
+        whiteColorStart: WaznComponents.Style._w_titleBarBackgroundGradientStart
+        whiteColorStop: WaznComponents.Style._w_titleBarBackgroundGradientStop
         start: Qt.point(width, 0)
         end: Qt.point(0, 0)
     }
@@ -103,7 +104,7 @@ Rectangle {
                 text: FontAwesome.signOutAlt
                 font.family: FontAwesome.fontFamilySolid
                 font.pixelSize: 16
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
                 font.styleName: "Solid"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -114,7 +115,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WaznComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.closeWalletClicked(leftPanel.visible)
             }
@@ -131,7 +132,7 @@ Rectangle {
                 text: FontAwesome.globe
                 font.family: FontAwesome.fontFamilySolid
                 font.pixelSize: 16
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
                 font.styleName: "Solid"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -142,7 +143,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WaznComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.languageClicked()
             }
@@ -156,10 +157,10 @@ Rectangle {
 
             Text {
                 text: FontAwesome.moonO
-                font.family: MoneroComponents.Style.blackTheme ? FontAwesome.fontFamilySolid : FontAwesome.fontFamily
-                font.styleName: MoneroComponents.Style.blackTheme ? "Solid" : "Regular"
+                font.family: WaznComponents.Style.blackTheme ? FontAwesome.fontFamilySolid : FontAwesome.fontFamily
+                font.styleName: WaznComponents.Style.blackTheme ? "Solid" : "Regular"
                 font.pixelSize: 15
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 opacity: 0.75
@@ -169,11 +170,11 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WaznComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: {
-                    MoneroComponents.Style.blackTheme = !MoneroComponents.Style.blackTheme;
-                    persistentSettings.blackTheme = MoneroComponents.Style.blackTheme;
+                    WaznComponents.Style.blackTheme = !WaznComponents.Style.blackTheme;
+                    persistentSettings.blackTheme = WaznComponents.Style.blackTheme;
                 }
             }
         }
@@ -181,13 +182,13 @@ Rectangle {
         Item {
             // make dummy space when hiding buttons when titlebar
             // state is 'essentials' in order for the
-            // monero logo to still be centered
+            // wazn logo to still be centered
             Layout.preferredWidth: parent.height * 2  // amount of buttons we hide
             Layout.preferredHeight: parent.height
             visible: root.state == "essentials"
         }
 
-        // monero logo
+        // wazn logo
         Item {
             visible: walletName.length === 0
             Layout.fillWidth: true
@@ -201,16 +202,16 @@ Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
 
-                source: MoneroComponents.Style.titleBarLogoSource
+                source: WaznComponents.Style.titleBarLogoSource
                 visible: {
                     if(!isOpenGL) return true;
-                    if(!MoneroComponents.Style.blackTheme) return true;
+                    if(!WaznComponents.Style.blackTheme) return true;
                     return false;
                 }
             }
 
             Colorize {
-                visible: isOpenGL && MoneroComponents.Style.blackTheme
+                visible: isOpenGL && WaznComponents.Style.blackTheme
                 anchors.fill: imgLogo
                 source: imgLogo
                 saturation: 0.0
@@ -222,7 +223,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: parent.height
 
-            MoneroComponents.TextPlain {
+            WaznComponents.TextPlain {
                 font.pixelSize: 20
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -240,17 +241,17 @@ Rectangle {
             Layout.preferredWidth: parent.height
             Layout.preferredHeight: parent.height
 
-            MoneroEffects.ImageMask {
+            WaznEffects.ImageMask {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 18
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: 3
                 width: 15
-                image: MoneroComponents.Style.titleBarMinimizeSource
-                color: MoneroComponents.Style.defaultFontColor
+                image: WaznComponents.Style.titleBarMinimizeSource
+                color: WaznComponents.Style.defaultFontColor
                 fontAwesomeFallbackIcon: FontAwesome.minus
                 fontAwesomeFallbackSize: 18
-                fontAwesomeFallbackOpacity: MoneroComponents.Style.blackTheme ? 0.8 : 0.6
+                fontAwesomeFallbackOpacity: WaznComponents.Style.blackTheme ? 0.8 : 0.6
                 opacity: 0.75
             }
 
@@ -258,7 +259,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WaznComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.minimizeClicked();
             }
@@ -275,7 +276,7 @@ Rectangle {
             Image {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: MoneroComponents.Style.titleBarFullscreenSource
+                source: WaznComponents.Style.titleBarFullscreenSource
                 sourceSize.width: 16
                 sourceSize.height: 16
                 smooth: true
@@ -289,7 +290,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WaznComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.maximizeClicked();
             }
@@ -302,16 +303,16 @@ Rectangle {
             Layout.preferredWidth: parent.height
             Layout.preferredHeight: parent.height
 
-            MoneroEffects.ImageMask {
+            WaznEffects.ImageMask {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: 16
                 width: 16
-                image: MoneroComponents.Style.titleBarCloseSource
-                color: MoneroComponents.Style.defaultFontColor
+                image: WaznComponents.Style.titleBarCloseSource
+                color: WaznComponents.Style.defaultFontColor
                 fontAwesomeFallbackIcon: FontAwesome.times
                 fontAwesomeFallbackSize: 21
-                fontAwesomeFallbackOpacity: MoneroComponents.Style.blackTheme ? 0.8 : 0.6
+                fontAwesomeFallbackOpacity: WaznComponents.Style.blackTheme ? 0.8 : 0.6
                 opacity: 0.75
             }
 
@@ -319,7 +320,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onEntered: parent.color = MoneroComponents.Style.titleBarButtonHoverColor
+                onEntered: parent.color = WaznComponents.Style.titleBarButtonHoverColor
                 onExited: parent.color = "transparent"
                 onClicked: root.closeClicked();
             }
@@ -331,13 +332,13 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: MoneroComponents.Style.blackTheme ? 1 : 1
-        color: MoneroComponents.Style.titleBarBackgroundBorderColor
+        height: WaznComponents.Style.blackTheme ? 1 : 1
+        color: WaznComponents.Style.titleBarBackgroundBorderColor
 
-        MoneroEffects.ColorTransition {
+        WaznEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_titleBarBackgroundBorderColor
-            whiteColor: MoneroComponents.Style._w_titleBarBackgroundBorderColor
+            blackColor: WaznComponents.Style._b_titleBarBackgroundBorderColor
+            whiteColor: WaznComponents.Style._w_titleBarBackgroundBorderColor
         }
     }
 

@@ -1,15 +1,15 @@
 import QtQuick 2.9
 
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WaznComponents
+import "effects/" as WaznEffects
 
 Rectangle {
-    color: MoneroComponents.Style.appWindowBorderColor
+    color: WaznComponents.Style.appWindowBorderColor
     height: 1
 
-    MoneroEffects.ColorTransition {
+    WaznEffects.ColorTransition {
         targetObj: parent
-        blackColor: MoneroComponents.Style._b_appWindowBorderColor
-        whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+        blackColor: WaznComponents.Style._b_appWindowBorderColor
+        whiteColor: WaznComponents.Style._w_appWindowBorderColor
     }
 }

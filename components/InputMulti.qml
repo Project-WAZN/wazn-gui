@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2015, The Monero Project
 //
 // All rights reserved.
@@ -30,26 +31,26 @@ import QtQuick.Controls 2.0
 import QtQuick 2.9
 
 import "../js/TxUtils.js" as TxUtils
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 TextArea {
     property int fontSize: 18
     property bool fontBold: false
-    property string fontColor: MoneroComponents.Style.defaultFontColor
+    property string fontColor: WaznComponents.Style.defaultFontColor
 
     property bool mouseSelection: true
     property bool error: false
     property bool addressValidation: false
 
     id: textArea
-    font.family: MoneroComponents.Style.fontRegular.name
+    font.family: WaznComponents.Style.fontRegular.name
     color: fontColor
     font.pixelSize: fontSize
     font.bold: fontBold
     horizontalAlignment: TextInput.AlignLeft
     selectByMouse: mouseSelection
-    selectionColor: MoneroComponents.Style.textSelectionColor
-    selectedTextColor: MoneroComponents.Style.textSelectedColor
+    selectionColor: WaznComponents.Style.textSelectionColor
+    selectedTextColor: WaznComponents.Style.textSelectedColor
 
     property int minimumHeight: 100
     height: contentHeight > minimumHeight ? contentHeight : minimumHeight
@@ -57,7 +58,7 @@ TextArea {
     onTextChanged: {
         if(addressValidation){
             // js replacement for `RegExpValidator { regExp: /[0-9A-Fa-f]{95}/g }`
-            if (textArea.text.startsWith("monero:")) {
+            if (textArea.text.startsWith("wazn:")) {
                 error = false;
                 return;
             }
@@ -69,7 +70,7 @@ TextArea {
         }
     }
 
-    MoneroComponents.ContextMenu {
+    WaznComponents.ContextMenu {
         cursorShape: Qt.IBeamCursor
         onPaste: {
             textArea.clear();

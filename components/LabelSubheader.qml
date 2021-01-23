@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2015, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +29,8 @@
 
 import QtQuick 2.9
 
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WaznComponents
+import "../components/effects/" as WaznEffects
 
 Label {
     id: item
@@ -41,12 +42,12 @@ Label {
         anchors.left: parent.left
         anchors.right: parent.right
         height: 2
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: WaznComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        WaznEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: WaznComponents.Style._b_appWindowBorderColor
+            whiteColor: WaznComponents.Style._w_appWindowBorderColor
         }
     }
 }

@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -31,7 +32,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 Rectangle {
     id: wizardModeRemoteNodeWarning
@@ -68,39 +69,39 @@ Rectangle {
                 Layout.topMargin: 10
                 Layout.fillWidth: true
 
-                MoneroComponents.TextPlain {
-                    text: qsTr("This mode is ideal for managing small amounts of Monero. You have access to basic features for making and managing transactions. It will automatically connect to the Monero network so you can start using Monero immediately.") + translationManager.emptyString
-                    themeTransitionBlackColor: MoneroComponents.Style._b_lightGreyFontColor
-                    themeTransitionWhiteColor: MoneroComponents.Style._w_lightGreyFontColor
+                WaznComponents.TextPlain {
+                    text: qsTr("This mode is ideal for managing small amounts of Wazn. You have access to basic features for making and managing transactions. It will automatically connect to the Wazn network so you can start using Wazn immediately.") + translationManager.emptyString
+                    themeTransitionBlackColor: WaznComponents.Style._b_lightGreyFontColor
+                    themeTransitionWhiteColor: WaznComponents.Style._w_lightGreyFontColor
                     wrapMode: Text.Wrap
                     Layout.topMargin: 14
                     Layout.fillWidth: true
 
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 16
-                    color: MoneroComponents.Style.lightGreyFontColor
+                    color: WaznComponents.Style.lightGreyFontColor
                 }
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     text: qsTr("Remote nodes are useful if you are not able/don't want to download the whole blockchain, but be advised that malicious remote nodes could compromise some privacy. They could track your IP address, track your \"restore height\" and associated block request data, and send you inaccurate information to learn more about transactions you make.") + translationManager.emptyString
-                    themeTransitionBlackColor: MoneroComponents.Style._b_lightGreyFontColor
-                    themeTransitionWhiteColor: MoneroComponents.Style._w_lightGreyFontColor
+                    themeTransitionBlackColor: WaznComponents.Style._b_lightGreyFontColor
+                    themeTransitionWhiteColor: WaznComponents.Style._w_lightGreyFontColor
                     wrapMode: Text.Wrap
                     Layout.topMargin: 8
                     Layout.fillWidth: true
 
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 16
-                    color: MoneroComponents.Style.lightGreyFontColor
+                    color: WaznComponents.Style.lightGreyFontColor
                 }
 
-                MoneroComponents.WarningBox {
+                WaznComponents.WarningBox {
                     Layout.topMargin: 14
                     Layout.bottomMargin: 6
                     text: qsTr("Remain aware of these limitations. <b>Users who prioritize privacy and decentralization must use a full node instead</b>.") + translationManager.emptyString
                 }
 
-                MoneroComponents.CheckBox {
+                WaznComponents.CheckBox {
                     id: understoodCheckbox
                     Layout.topMargin: 20
                     fontSize: 16

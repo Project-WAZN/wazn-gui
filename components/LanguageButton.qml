@@ -1,3 +1,4 @@
+// Copyright (c) 2021 WAZN Project
 // Copyright (c) 2020, The Monero Project
 //
 // All rights reserved.
@@ -31,7 +32,7 @@ import QtQuick.Layouts 1.3
 
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 Item {
     implicitHeight: layout.height
@@ -42,16 +43,16 @@ Item {
         opacity: mouseArea.containsMouse ? 1 : 0.85
         spacing: 10
 
-        MoneroComponents.Label {
+        WaznComponents.Label {
             Layout.bottomMargin: 5
-            fontColor: MoneroComponents.Style.defaultFontColor
+            fontColor: WaznComponents.Style.defaultFontColor
             fontFamily: FontAwesome.fontFamilySolid
             fontSize: 26
             styleName: "Solid"
             text: FontAwesome.language
         }
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             font.pixelSize: 14
             text: persistentSettings.language
         }

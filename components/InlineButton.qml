@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -32,14 +33,14 @@ import QtGraphicalEffects 1.0
 
 import FontAwesome 1.0
 
-import "." as MoneroComponents
-import "./effects/" as MoneroEffects
+import "." as WaznComponents
+import "./effects/" as WaznEffects
 
 Item {
     id: inlineButton
 
     property bool small: false
-    property string textColor: MoneroComponents.Style.inlineButtonTextColor
+    property string textColor: WaznComponents.Style.inlineButtonTextColor
     property alias text: inlineText.text
     property alias fontPixelSize: inlineText.font.pixelSize
     property alias fontFamily: inlineText.font.family
@@ -61,13 +62,13 @@ Item {
     Rectangle{
         id: rect
         anchors.fill: parent
-        color: MoneroComponents.Style.buttonInlineBackgroundColor
+        color: WaznComponents.Style.buttonInlineBackgroundColor
         radius: 4
 
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             id: inlineText
-            font.family: MoneroComponents.Style.fontBold.name
+            font.family: WaznComponents.Style.fontBold.name
             font.bold: true
             font.pixelSize: inlineButton.isFontAwesomeIcon ? 22 : inlineButton.small ? 14 : 16
             color: inlineButton.textColor
@@ -75,10 +76,10 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             themeTransition: false
 
-            MoneroEffects.ColorTransition {
+            WaznEffects.ColorTransition {
                 targetObj: inlineText
-                blackColor: MoneroComponents.Style._b_inlineButtonTextColor
-                whiteColor: MoneroComponents.Style._w_inlineButtonTextColor
+                blackColor: WaznComponents.Style._b_inlineButtonTextColor
+                whiteColor: WaznComponents.Style._w_inlineButtonTextColor
             }
         }
 
@@ -100,7 +101,7 @@ Item {
     }
 
     DropShadow {
-        visible: !MoneroComponents.Style.blackTheme
+        visible: !WaznComponents.Style.blackTheme
         anchors.fill: rect
         horizontalOffset: 2
         verticalOffset: 2

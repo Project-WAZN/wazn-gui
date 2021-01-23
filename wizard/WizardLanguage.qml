@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -31,8 +32,8 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../components"
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as WaznComponents
+import "../components/effects/" as WaznEffects
 import "../version.js" as Version
 
 Rectangle {
@@ -62,10 +63,10 @@ Rectangle {
             opacity: 0
             Layout.preferredWidth: parent.width / 1.3
             Layout.alignment: Qt.AlignCenter
-            color: MoneroComponents.Style.defaultFontColor
+            color: WaznComponents.Style.defaultFontColor
             text: "Welcome - Wilkommen - Bonvenon - Bienvenido - Bienvenue - Välkommen - Selamat datang - Benvenuto - 歡迎 - Welkom - Bem Vindo - добро пожаловать"
 
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WaznComponents.Style.fontRegular.name
             font.bold: true
             font.pixelSize: 18
             horizontalAlignment: TextInput.AlignHCenter
@@ -152,9 +153,9 @@ Rectangle {
             Layout.fillWidth: true
             columnSpacing: 20
 
-            MoneroComponents.LanguageButton { }
+            WaznComponents.LanguageButton { }
 
-            MoneroComponents.StandardButton {
+            WaznComponents.StandardButton {
                 id: btnContinue
                 Layout.minimumWidth: 150
                 text: qsTr("Continue") + translationManager.emptyString
@@ -177,14 +178,14 @@ Rectangle {
             }
         }
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             id: versionText
             opacity: 0
             Layout.alignment: Qt.AlignCenter
             font.bold: true
             font.pixelSize: 12
-            font.family: MoneroComponents.Style.fontRegular.name
-            color: MoneroComponents.Style.defaultFontColor
+            font.family: WaznComponents.Style.fontRegular.name
+            color: WaznComponents.Style.defaultFontColor
             text: Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")"
 
             Behavior on opacity {

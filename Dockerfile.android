@@ -176,7 +176,7 @@ RUN cd tools \
     && echo y | ${ANDROID_SDK_ROOT}/tools/android update sdk --no-ui --all --filter build-tools-28.0.3
 
 CMD set -ex \
-    && cd /monero-gui \
+    && cd /wazn-gui \
     && mkdir -p build/Android/release \
     && cd build/Android/release \
     && cmake \
@@ -190,7 +190,7 @@ CMD set -ex \
     -DANDROID_TOOLCHAIN=clang \
     -DBoost_USE_STATIC_RUNTIME=ON \
     -DLRELEASE_PATH="${PREFIX}/bin" \
-    -DQT_ANDROID_APPLICATION_BINARY="monero-wallet-gui" \
+    -DQT_ANDROID_APPLICATION_BINARY="wazn-wallet-gui" \
     -DWITH_SCANNER=ON \
     ../../.. \
     && PATH=${HOST_PATH} make generate_translations_header \

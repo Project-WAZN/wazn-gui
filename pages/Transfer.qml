@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -30,13 +31,13 @@ import QtQuick 2.9
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
-import moneroComponents.Clipboard 1.0
-import moneroComponents.PendingTransaction 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.NetworkType 1.0
+import waznComponents.Clipboard 1.0
+import waznComponents.PendingTransaction 1.0
+import waznComponents.Wallet 1.0
+import waznComponents.NetworkType 1.0
 import FontAwesome 1.0
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 import "." 1.0
 import "../js/TxUtils.js" as TxUtils
 import "../js/Utils.js" as Utils
@@ -147,7 +148,7 @@ Rectangle {
       RowLayout {
           visible: root.warningContent !== ""
 
-          MoneroComponents.WarningBox {
+          WaznComponents.WarningBox {
               text: warningContent
               onLinkActivated: {
                   appWindow.startDaemon(appWindow.persistentSettings.daemonFlags);
@@ -158,8 +159,8 @@ Rectangle {
       RowLayout {
           visible: leftPanel.minutesToUnlock !== ""
 
-          MoneroComponents.WarningBox {
-              text: qsTr("Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.").arg(leftPanel.balanceUnlockedString).arg(leftPanel.minutesToUnlock)
+          WaznComponents.WarningBox {
+              text: qsTr("Spendable funds: %1 WAZN. Please wait ~%2 minutes for your whole balance to become spendable.").arg(leftPanel.balanceUnlockedString).arg(leftPanel.minutesToUnlock)
           }
       }
 
@@ -196,7 +197,7 @@ Rectangle {
                   }
               }
 
-                MoneroComponents.InlineButton {
+                WaznComponents.InlineButton {
                     fontFamily: FontAwesome.fontFamily
                     text: FontAwesome.addressBook
                     onClicked: {
@@ -205,7 +206,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.InlineButton {
+                WaznComponents.InlineButton {
                     fontFamily: FontAwesome.fontFamily
                     text: FontAwesome.qrcode
                     visible: appWindow.qrScannerEnabled
@@ -311,19 +312,19 @@ Rectangle {
                       regExp: /^\s*(\d{1,8})?([\.,]\d{1,12})?\s*$/
                   }
 
-                    MoneroComponents.InlineButton {
+                    WaznComponents.InlineButton {
                         text: qsTr("All") + translationManager.emptyString
                         onClicked: amountLine.text = "(all)"
                     }
               }
 
-                MoneroComponents.TextPlain {
+                WaznComponents.TextPlain {
                     id: feeLabel
                     Layout.alignment: Qt.AlignRight
                     Layout.topMargin: 12
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 14
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     property bool estimating: false
                     property var estimatedFee: null
                     property string estimatedFeeFiat: {
@@ -352,7 +353,7 @@ Rectangle {
                         if (!sendButton.enabled || estimatedFee == null) {
                             return ""
                         }
-                        return "%1: ~%2 XMR".arg(qsTr("Fee")).arg(estimatedFee) +
+                        return "%1: ~%2 WAZN".arg(qsTr("Fee")).arg(estimatedFee) +
                             estimatedFeeFiat +
                             translationManager.emptyString;
                     }
@@ -403,7 +404,7 @@ Rectangle {
           }
       }
 
-      MoneroComponents.WarningBox {
+      WaznComponents.WarningBox {
           text: qsTr("Description field contents match long payment ID format. \
           Please don't paste long payment ID into description field, your funds might be lost.") + translationManager.emptyString;
           visible: warningLongPidDescription
@@ -472,7 +473,7 @@ Rectangle {
           }
       }
 
-      MoneroComponents.WarningBox {
+      WaznComponents.WarningBox {
           id: paymentIdWarningBox
           text: qsTr("Long payment IDs are obsolete. \
           Long payment IDs were not encrypted on the blockchain and would harm your privacy. \
@@ -480,7 +481,7 @@ Rectangle {
           visible: paymentIdCheckbox.checked || warningLongPidDescription
       }
 
-      MoneroComponents.WarningBox {
+      WaznComponents.WarningBox {
           id: sendButtonWarningBox
           text: root.sendButtonWarning
           visible: root.sendButtonWarning !== ""
@@ -547,7 +548,7 @@ Rectangle {
             button2.enabled: appWindow.viewOnly && appWindow.isTrustedDaemon()
             button2.onClicked: {
                 console.log("Transfer: import key images clicked")
-                importKeyImagesDialog.open(); 
+                importKeyImagesDialog.open();
             }
             helpTextLarge.text: qsTr("Required for view-only wallets to display the real balance") + translationManager.emptyString
             helpTextSmall.text: {
@@ -555,7 +556,7 @@ Rectangle {
                 if (appWindow.viewOnly && !appWindow.isTrustedDaemon()){
                     errorMessage = "<p class='orange'>" + qsTr("* To import, you must connect to a local node or a trusted remote node") + "</p>";
                 }
-                return "<style type='text/css'>p{line-height:20px; margin-top:0px; margin-bottom:0px; color:" + MoneroComponents.Style.defaultFontColor +
+                return "<style type='text/css'>p{line-height:20px; margin-top:0px; margin-bottom:0px; color:" + WaznComponents.Style.defaultFontColor +
                        ";} p.orange{color:#ff9323;}</style>" +
                        "<p>" + qsTr("1. Using cold wallet, export the key images into a file") + "</p>" +
                        "<p>" + qsTr("2. Using view-only wallet, import the key images file") + "</p>" +
@@ -563,7 +564,7 @@ Rectangle {
             }
             helpTextSmall.themeTransition: false
         }
-        
+
         AdvancedOptionsItem {
             visible: persistentSettings.transferShowAdvanced && appWindow.walletMode >= 2
             title: qsTr("Offline transaction signing") + translationManager.emptyString
@@ -590,13 +591,13 @@ Rectangle {
                 console.log("Transfer: submit tx clicked")
                 submitTxDialog.open();
             }
-            helpTextLarge.text: qsTr("Spend XMR from a cold (offline) wallet") + translationManager.emptyString
+            helpTextLarge.text: qsTr("Spend WAZN from a cold (offline) wallet") + translationManager.emptyString
             helpTextSmall.text: {
                 var errorMessage = "";
                 if (appWindow.viewOnly && !pageRoot.checkInformation(amountLine.text, addressLine.text, appWindow.persistentSettings.nettype)){
                     errorMessage = "<p class='orange'>" + qsTr("* To create a transaction file, please enter address and amount above") + "</p>";
                 }
-                return "<style type='text/css'>p{line-height:20px; margin-top:0px; margin-bottom:0px; color:" + MoneroComponents.Style.defaultFontColor + 
+                return "<style type='text/css'>p{line-height:20px; margin-top:0px; margin-bottom:0px; color:" + WaznComponents.Style.defaultFontColor +
                        ";} p.orange{color:#ff9323;}</style>" +
                        "<p>" + qsTr("1. Using view-only wallet, export the outputs into a file") + "</p>" +
                        "<p>" + qsTr("2. Using cold wallet, import the outputs file and export the key images") + "</p>" +
@@ -698,7 +699,7 @@ Rectangle {
                 informationPopup.open();
             } else {
                 informationPopup.title = qsTr("Information") + translationManager.emptyString
-                informationPopup.text  = qsTr("Monero sent successfully") + translationManager.emptyString
+                informationPopup.text  = qsTr("Wazn sent successfully") + translationManager.emptyString
                 informationPopup.icon  = StandardIcon.Information
                 informationPopup.onCloseCallback = null
                 informationPopup.open();
@@ -709,7 +710,7 @@ Rectangle {
         }
 
     }
-    
+
     //ExportKeyImagesDialog
     FileDialog {
         id: exportKeyImagesDialog

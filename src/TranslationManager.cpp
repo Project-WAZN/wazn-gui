@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -54,7 +55,7 @@ bool TranslationManager::setLanguage(const QString &language)
     }
 
     QString dir = qApp->applicationDirPath() + "/translations";
-    QString filename = "monero-core_" + language;
+    QString filename = "wazn-core_" + language;
 
     qDebug("%s: loading translation file '%s' from '%s'",
            __FUNCTION__, qPrintable(filename), qPrintable(dir));
@@ -98,4 +99,3 @@ QString TranslationManager::emptyString()
 {
     return "";
 }
-

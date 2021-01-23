@@ -1,21 +1,22 @@
+// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -32,7 +33,7 @@ import QtQuick.Controls 2.0
 import FontAwesome 1.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 ColumnLayout {
     id: root
@@ -86,7 +87,7 @@ ColumnLayout {
         subtitle: qsTr("This password cannot be recovered. If you forget it then the wallet will have to be restored from your %1.").arg(!wizardController.walletOptionsIsRecoveringFromDevice ? qsTr("25 word mnemonic seed") : qsTr("hardware wallet"))+ translationManager.emptyString
     }
 
-    MoneroComponents.WarningBox {
+    WaznComponents.WarningBox {
         text: "<b>%1</b> (%2).".arg(qsTr("Enter a strong password")).arg(qsTr("Using letters, numbers, and/or symbols")) + translationManager.emptyString
     }
 
@@ -100,10 +101,10 @@ ColumnLayout {
             id: progressText
             Layout.topMargin: 6
             Layout.bottomMargin: 6
-            font.family: MoneroComponents.Style.fontMedium.name
+            font.family: WaznComponents.Style.fontMedium.name
             font.pixelSize: 14
             font.bold: false
-            color: MoneroComponents.Style.defaultFontColor
+            color: WaznComponents.Style.defaultFontColor
             height: 18
             passwordCharacter: "*"
         }
@@ -114,7 +115,7 @@ ColumnLayout {
             Layout.preferredHeight: 8
 
             radius: 8
-            color: MoneroComponents.Style.progressBarBackgroundColor
+            color: WaznComponents.Style.progressBarBackgroundColor
 
             Rectangle {
                 id: fillRect
@@ -125,11 +126,11 @@ ColumnLayout {
                 property int maxWidth: bar.width
                 width: (maxWidth * root.passwordFill) / 100
                 radius: 8
-                color: MoneroComponents.Style.orange
+                color: WaznComponents.Style.orange
             }
 
             Rectangle {
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.leftMargin: 8
@@ -137,7 +138,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.LineEdit {
+    WaznComponents.LineEdit {
         id: passwordInput
         Layout.fillWidth: true
         KeyNavigation.tab: passwordInputConfirm
@@ -149,7 +150,7 @@ ColumnLayout {
         text: walletOptionsPassword
     }
 
-    MoneroComponents.LineEdit {
+    WaznComponents.LineEdit {
         id: passwordInputConfirm
         Layout.fillWidth: true
         Layout.topMargin: 8

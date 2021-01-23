@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2020, The Monero Project
 //
 // All rights reserved.
@@ -37,9 +38,7 @@
 
 Updater::Updater()
 {
-    m_maintainers.emplace_back(fileGetContents(":/monero/utils/gpg_keys/binaryfate.asc").toStdString());
-    m_maintainers.emplace_back(fileGetContents(":/monero/utils/gpg_keys/fluffypony.asc").toStdString());
-    m_maintainers.emplace_back(fileGetContents(":/monero/utils/gpg_keys/luigi1111.asc").toStdString());
+    m_maintainers.emplace_back(fileGetContents(":/wazn/utils/gpg_keys/vermin.asc").toStdString());
 }
 
 QByteArray Updater::fetchSignedHash(
@@ -47,8 +46,8 @@ QByteArray Updater::fetchSignedHash(
     const QByteArray &hashFromDns,
     QPair<QString, QString> &signers) const
 {
-    static constexpr const char hashesTxtUrl[] = "https://web.getmonero.org/downloads/hashes.txt";
-    static constexpr const char hashesTxtSigUrl[] = "https://web.getmonero.org/downloads/hashes.txt.sig";
+    static constexpr const char hashesTxtUrl[] = "https://web.getwazn.org/downloads/hashes.txt";
+    static constexpr const char hashesTxtSigUrl[] = "https://web.getwazn.org/downloads/hashes.txt.sig";
 
     const Network network;
     std::string hashesTxt = network.get(hashesTxtUrl);

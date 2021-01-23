@@ -1,21 +1,22 @@
+Wazn// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -32,7 +33,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 ColumnLayout {
     Layout.fillWidth: true
@@ -50,7 +51,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.RadioButton {
+    WaznComponents.RadioButton {
         id: localNode
         Layout.fillWidth: true
         text: qsTr("Start a node automatically in background (recommended)") + translationManager.emptyString
@@ -71,7 +72,7 @@ ColumnLayout {
         Layout.topMargin: 8
         Layout.fillWidth: true
 
-        MoneroComponents.LineEdit {
+        WaznComponents.LineEdit {
             id: blockchainFolder
             Layout.fillWidth: true
 
@@ -82,7 +83,7 @@ ColumnLayout {
             placeholderFontSize: 15
             text: persistentSettings.blockchainDataDir
 
-            MoneroComponents.InlineButton {
+            WaznComponents.InlineButton {
                 small: true
                 text: qsTr("Browse") + translationManager.emptyString
                 onClicked: {
@@ -102,8 +103,8 @@ ColumnLayout {
                 text: qsTr("Bootstrap node") + translationManager.emptyString
                 Layout.topMargin: 10
                 Layout.fillWidth: true
-                font.family: MoneroComponents.Style.fontRegular.name
-                color: MoneroComponents.Style.defaultFontColor
+                font.family: WaznComponents.Style.fontRegular.name
+                color: WaznComponents.Style.defaultFontColor
                 font.pixelSize: {
                     if(wizardController.layoutScale === 2 ){
                         return 22;
@@ -119,12 +120,12 @@ ColumnLayout {
             }
 
             Text {
-                text: qsTr("Additionally, you may specify a bootstrap node to use Monero immediately.") + translationManager.emptyString
+                text: qsTr("Additionally, you may specify a bootstrap node to use Wazn immediately.") + translationManager.emptyString
                 Layout.topMargin: 4
                 Layout.fillWidth: true
 
-                font.family: MoneroComponents.Style.fontRegular.name
-                color: MoneroComponents.Style.dimmedFontColor
+                font.family: WaznComponents.Style.fontRegular.name
+                color: WaznComponents.Style.dimmedFontColor
 
                 font.pixelSize: {
                     if(wizardController.layoutScale === 2 ){
@@ -145,7 +146,7 @@ ColumnLayout {
             spacing: 8
             Layout.fillWidth: true
 
-            MoneroComponents.RemoteNodeEdit {
+            WaznComponents.RemoteNodeEdit {
                 id: bootstrapNodeEdit
                 Layout.minimumWidth: 300
                 //labelText: qsTr("Bootstrap node (leave blank if not wanted)") + translationManager.emptyString
@@ -155,7 +156,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.RadioButton {
+    WaznComponents.RadioButton {
         id: remoteNode
         Layout.fillWidth: true
         Layout.topMargin: 8
@@ -175,7 +176,7 @@ ColumnLayout {
         Layout.topMargin: 8
         Layout.fillWidth: true
 
-        MoneroComponents.RemoteNodeEdit {
+        WaznComponents.RemoteNodeEdit {
             id: remoteNodeEdit
             Layout.fillWidth: true
 

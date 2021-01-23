@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2020, The Monero Project
 //
 // All rights reserved.
@@ -30,7 +31,7 @@ import QtQuick 2.9
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 import FontAwesome 1.0
 
 Rectangle {
@@ -40,10 +41,10 @@ Rectangle {
     // TODO: implement without hardcoding sizes
     width: 580
     height: 400
-    color: MoneroComponents.Style.blackTheme ? "black" : "white"
+    color: WaznComponents.Style.blackTheme ? "black" : "white"
     visible: false
     radius: 10
-    border.color: MoneroComponents.Style.blackTheme ? Qt.rgba(255, 255, 255, 0.25) : Qt.rgba(0, 0, 0, 0.25)
+    border.color: WaznComponents.Style.blackTheme ? Qt.rgba(255, 255, 255, 0.25) : Qt.rgba(0, 0, 0, 0.25)
     border.width: 1
     Keys.enabled: true
     Keys.onEscapePressed: {
@@ -149,7 +150,7 @@ Rectangle {
             Layout.topMargin: 10
             Layout.fillWidth: true
 
-            MoneroComponents.Label {
+            WaznComponents.Label {
                 id: dialogTitle
                 Layout.fillWidth: true
                 fontSize: 18
@@ -171,7 +172,7 @@ Rectangle {
             id: errorText
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: MoneroComponents.Style.defaultFontColor
+            color: WaznComponents.Style.defaultFontColor
             wrapMode: Text.Wrap
             font.pixelSize: 15
         }
@@ -193,7 +194,7 @@ Rectangle {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: root.transactionAmount == "(all)" && currentWallet.isHwBacked() === true ? 32 : 42
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
                 text: {
                     if (root.transactionAmount == "(all)" && currentWallet.isHwBacked() === true) {
                         return qsTr("All unlocked balance") +  translationManager.emptyString;
@@ -208,7 +209,7 @@ Rectangle {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 20
-                color: MoneroComponents.Style.buttonSecondaryTextColor
+                color: WaznComponents.Style.buttonSecondaryTextColor
                 text: showFiatConversion(transactionAmount) + translationManager.emptyString
             }
         }
@@ -226,7 +227,7 @@ Rectangle {
 
                 Text {
                     Layout.fillWidth: true
-                    color: MoneroComponents.Style.dimmedFontColor
+                    color: WaznComponents.Style.dimmedFontColor
                     text: qsTr("From") + ":" + translationManager.emptyString
                     font.pixelSize: 15
                 }
@@ -239,7 +240,7 @@ Rectangle {
                 Text {
                     Layout.fillWidth: true
                     font.pixelSize: 15
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: {
                         if (currentWallet) {
                             var walletTitle = function() {
@@ -273,7 +274,7 @@ Rectangle {
                 Text {
                     Layout.fillWidth: true
                     font.pixelSize: 15
-                    color: MoneroComponents.Style.dimmedFontColor
+                    color: WaznComponents.Style.dimmedFontColor
                     text: qsTr("To") + ":" + translationManager.emptyString
                 }
             }
@@ -285,10 +286,10 @@ Rectangle {
                 Text {
                     Layout.fillWidth: true
                     font.pixelSize: 15
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     textFormat: Text.RichText
                     wrapMode: Text.Wrap
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: {
                         if (root.transactionAddress) {
                             const addressBookName = currentWallet ? currentWallet.addressBook.getDescription(root.transactionAddress) : null;
@@ -296,7 +297,7 @@ Rectangle {
                             var spacedaddress = fulladdress.match(/.{1,4}/g);
                             var spacedaddress = spacedaddress.join(' ');
                             if (!addressBookName) {
-                                return qsTr("Monero address") + "<br>" + spacedaddress + translationManager.emptyString; 
+                                return qsTr("Wazn address") + "<br>" + spacedaddress + translationManager.emptyString;
                             } else {
                                 return FontAwesome.addressBook + " " + addressBookName + "<br>" + spacedaddress;
                             }
@@ -313,7 +314,7 @@ Rectangle {
 
                 Text {
                     Layout.fillWidth: true
-                    color: MoneroComponents.Style.dimmedFontColor
+                    color: WaznComponents.Style.dimmedFontColor
                     text: qsTr("Fee") + ":" + translationManager.emptyString
                     font.pixelSize: 15
                 }
@@ -324,7 +325,7 @@ Rectangle {
                 spacing: 16
 
                 Text {
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     font.pixelSize: 15
                     text: {
                         if (currentWallet) {
@@ -346,7 +347,7 @@ Rectangle {
                 Text {
                     Layout.fillWidth: true
                     Layout.leftMargin: 8
-                    color: MoneroComponents.Style.buttonSecondaryTextColor
+                    color: WaznComponents.Style.buttonSecondaryTextColor
                     visible: persistentSettings.fiatPriceEnabled && root.transactionFee
                     font.pixelSize: 15
                     text: showFiatConversion(root.transactionFee)
@@ -372,7 +373,7 @@ Rectangle {
 
                 Text {
                     id: bottomText
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: WaznComponents.Style.defaultFontColor
                     text: ""
                     horizontalAlignment: Text.AlignHCenter
                     wrapMode: Text.Wrap
@@ -396,7 +397,7 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 50
 
-                MoneroComponents.StandardButton {
+                WaznComponents.StandardButton {
                     id: backButton
                     text: qsTr("Back") + translationManager.emptyString;
                     width: 200
@@ -409,7 +410,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                WaznComponents.StandardButton {
                     id: confirmButton
                     text: qsTr("Confirm") + translationManager.emptyString;
                     rightIcon: "qrc:///images/rightArrow.png"

@@ -1,21 +1,22 @@
+Wazn// Copyright (c) 2019-2020 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -28,7 +29,7 @@
 
 import "../js/Wizard.js" as Wizard
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as WaznComponents
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.2
@@ -44,9 +45,9 @@ ColumnLayout {
     Text {
         text: title
         Layout.fillWidth: true
-        font.family: MoneroComponents.Style.fontRegular.name
-        color: MoneroComponents.Style.defaultFontColor
-        opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+        font.family: WaznComponents.Style.fontRegular.name
+        color: WaznComponents.Style.defaultFontColor
+        opacity: WaznComponents.Style.blackTheme ? 1.0 : 0.8
         font.pixelSize: {
             if(wizardController.layoutScale === 2 ){
                 return 34;
@@ -66,10 +67,10 @@ ColumnLayout {
         Layout.alignment: Qt.AlignCenter
         visible: parent.subtitle !== ""
 
-        color: MoneroComponents.Style.dimmedFontColor
+        color: WaznComponents.Style.dimmedFontColor
         text: subtitle
 
-        font.family: MoneroComponents.Style.fontRegular.name
+        font.family: WaznComponents.Style.fontRegular.name
         font.pixelSize: {
             if(wizardController.layoutScale === 2 ){
                 return 16;

@@ -1,3 +1,4 @@
+# Copyright (c) 2019-2020 WAZN Project
 # Copyright (c) 2014-2020, The Monero Project
 #
 # All rights reserved.
@@ -31,7 +32,7 @@
 #
 # Usage of this module as follows:
 #
-#     project(monero)
+#     project(wazn)
 #     include(FindCcache) # Include AFTER the project() macro to be able to reach the CMAKE_CXX_COMPILER variable
 #
 # Properties modified by this module:

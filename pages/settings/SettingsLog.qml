@@ -1,21 +1,22 @@
+Wazn// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2018, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -31,7 +32,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 
 import "../../js/Utils.js" as Utils
-import "../../components" as MoneroComponents
+import "../../components" as WaznComponents
 
 
 Rectangle {
@@ -56,15 +57,15 @@ Rectangle {
 //            Layout.preferredHeight: 1
 //            Layout.fillWidth: true
 //            Layout.bottomMargin: 8
-//            color: MoneroComponents.Style.dividerColor
-//            opacity: MoneroComponents.Style.dividerOpacity
+//            color: WaznComponents.Style.dividerColor
+//            opacity: WaznComponents.Style.dividerOpacity
 //        }
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             Layout.bottomMargin: 2
-            color: MoneroComponents.Style.defaultFontColor
+            color: WaznComponents.Style.defaultFontColor
             font.pixelSize: 18
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WaznComponents.Style.fontRegular.name
             text: qsTr("Log level") + translationManager.emptyString
         }
 
@@ -84,7 +85,7 @@ Rectangle {
                  ListElement { column1: "custom"; }
             }
 
-            MoneroComponents.StandardDropdown {
+            WaznComponents.StandardDropdown {
                 id: logLevelDropdown
                 dataModel: logLevel
                 itemTopMargin: 2
@@ -105,7 +106,7 @@ Rectangle {
                 z: parent.z + 1
             }
 
-            MoneroComponents.LineEdit {
+            WaznComponents.LineEdit {
                 id: logCategories
                 visible: logLevelDropdown.currentIndex === 5
                 Layout.fillWidth: true
@@ -125,12 +126,12 @@ Rectangle {
             }
         }
 
-        MoneroComponents.TextPlain {
+        WaznComponents.TextPlain {
             Layout.topMargin: 10
             Layout.bottomMargin: 2
-            color: MoneroComponents.Style.defaultFontColor
+            color: WaznComponents.Style.defaultFontColor
             font.pixelSize: 18
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: WaznComponents.Style.fontRegular.name
             text: qsTr("Daemon log") + translationManager.emptyString
         }
 
@@ -142,7 +143,7 @@ Rectangle {
             Rectangle {
                 anchors.fill: parent
                 color: "transparent"
-                border.color: MoneroComponents.Style.inputBorderColorInActive
+                border.color: WaznComponents.Style.inputBorderColorInActive
                 border.width: 1
                 radius: 4
             }
@@ -154,12 +155,12 @@ Rectangle {
 
                 TextArea.flickable: TextArea {
                     id : consoleArea
-                    color: MoneroComponents.Style.defaultFontColor
-                    selectionColor: MoneroComponents.Style.textSelectionColor
+                    color: WaznComponents.Style.defaultFontColor
+                    selectionColor: WaznComponents.Style.textSelectionColor
                     textFormat: TextEdit.RichText
                     selectByMouse: true
                     selectByKeyboard: true
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: WaznComponents.Style.fontRegular.name
                     font.pixelSize: 14
                     wrapMode: TextEdit.Wrap
                     readOnly: true
@@ -169,11 +170,11 @@ Rectangle {
                     }
                     function logMessage(msg){
                         msg = msg.trim();
-                        var color = MoneroComponents.Style.defaultFontColor;
+                        var color = WaznComponents.Style.defaultFontColor;
                         if(msg.toLowerCase().indexOf('error') >= 0){
-                            color = MoneroComponents.Style.errorColor;
+                            color = WaznComponents.Style.errorColor;
                         } else if (msg.toLowerCase().indexOf('warning') >= 0){
-                            color = MoneroComponents.Style.warningColor;
+                            color = WaznComponents.Style.warningColor;
                         }
 
                         // format multi-lines
@@ -193,7 +194,7 @@ Rectangle {
                             timeZoneName: undefined
                         });
 
-                        var _timestamp = log_color("[" + timestamp + "]", MoneroComponents.Style.defaultFontColor);
+                        var _timestamp = log_color("[" + timestamp + "]", WaznComponents.Style.defaultFontColor);
                         var _msg = log_color(msg, color);
                         consoleArea.append(_timestamp + " " + _msg);
 
@@ -210,7 +211,7 @@ Rectangle {
             }
         }
 
-        MoneroComponents.LineEdit {
+        WaznComponents.LineEdit {
             id: sendCommandText
             Layout.fillWidth: true
             property var lastCommands: []

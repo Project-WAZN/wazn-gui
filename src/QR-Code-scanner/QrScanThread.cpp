@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -87,4 +88,3 @@ void QrScanThread::run()
             processVideoFrame(m_queue.takeFirst());
     }
 }
-

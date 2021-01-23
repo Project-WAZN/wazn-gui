@@ -75,12 +75,12 @@ function isValidOpenAliasAddress(address) {
 }
 
 function makeQRCodeString(addr, amount) {
-    var XMR_URI_SCHEME = "monero:"
-    var XMR_AMOUNT = "tx_amount"
+    var WAZN_URI_SCHEME = "wazn:"
+    var WAZN_AMOUNT = "tx_amount"
     var qrCodeString =""
-    qrCodeString += (XMR_URI_SCHEME + addr)
+    qrCodeString += (WAZN_URI_SCHEME + addr)
     if (amount !== undefined && amount !== ""){
-      qrCodeString += ("?" + XMR_AMOUNT + "=" + amount)
+      qrCodeString += ("?" + WAZN_AMOUNT + "=" + amount)
     }
     return qrCodeString
 }

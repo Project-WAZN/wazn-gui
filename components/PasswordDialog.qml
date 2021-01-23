@@ -1,3 +1,4 @@
+// Copyright (c) 2019-2021 WAZN Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -34,8 +35,8 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Window 2.0
 import FontAwesome 1.0
 
-import "." as MoneroComponents
-import "effects/" as MoneroEffects
+import "." as WaznComponents
+import "effects/" as WaznEffects
 import "../js/Utils.js" as Utils
 
 Item {
@@ -165,9 +166,9 @@ Item {
                 Layout.fillWidth: true
 
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: WaznComponents.Style.fontLight.name
 
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
             }
 
             Label {
@@ -177,17 +178,17 @@ Item {
                 wrapMode: Text.Wrap
 
                 font.pixelSize: 14
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: WaznComponents.Style.fontLight.name
 
-                color: MoneroComponents.Style.warningColor
+                color: WaznComponents.Style.warningColor
             }
 
             Label {
                 id: errorTextLabel
                 visible: root.errorText || text !== ""
-                color: MoneroComponents.Style.errorColor
+                color: WaznComponents.Style.errorColor
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: WaznComponents.Style.fontLight.name
                 Layout.fillWidth: true
                 wrapMode: Text.Wrap
             }
@@ -195,15 +196,15 @@ Item {
             Label {
                 id: capsLockTextLabel
                 visible: false
-                color: MoneroComponents.Style.errorColor
+                color: WaznComponents.Style.errorColor
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: WaznComponents.Style.fontLight.name
                 Layout.fillWidth: true
                 wrapMode: Text.Wrap
                 text: qsTr("CAPSLOCKS IS ON.") + translationManager.emptyString;
             }
 
-            MoneroComponents.LineEdit {
+            WaznComponents.LineEdit {
                 id: passwordInput1
                 password: true
                 Layout.topMargin: 6
@@ -239,12 +240,12 @@ Item {
                 Layout.fillWidth: true
 
                 font.pixelSize: 16
-                font.family: MoneroComponents.Style.fontLight.name
+                font.family: WaznComponents.Style.fontLight.name
 
-                color: MoneroComponents.Style.defaultFontColor
+                color: WaznComponents.Style.defaultFontColor
             }
 
-            MoneroComponents.LineEdit {
+            WaznComponents.LineEdit {
                 id: passwordInput2
                 passwordLinked: passwordInput1
                 visible: !passwordDialogMode
@@ -276,7 +277,7 @@ Item {
                 Layout.topMargin: 16
                 Layout.alignment: Qt.AlignRight
 
-                MoneroComponents.StandardButton {
+                WaznComponents.StandardButton {
                     id: cancelButton
                     primary: false
                     small: true
@@ -285,7 +286,7 @@ Item {
                     onClicked: onCancel()
                 }
 
-                MoneroComponents.StandardButton {
+                WaznComponents.StandardButton {
                     id: okButton
                     fontAwesomeIcon: true
                     rightIcon: okButtonIcon
