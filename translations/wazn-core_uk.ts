@@ -1713,7 +1713,7 @@ The old wallet cache file will be renamed and can be restored later.
     </message>
     <message>
         <location filename="../pages/settings/SettingsWallet.qml" line="72"/>
-        <source>The view only wallet has been created with the same password as the current wallet. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
+        <source>The view only wallet has been created with the same password as the current wallet. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
 %1
 You can change the password in the wallet settings.</source>
         <translation>Гаманець тільки для перегляду створений с тим самим паролем, що і поточний. Ви можете відкрити його, закривши поточний, натиснувши &quot;Відкрити гаманець із файла&quot; і вибравши гаманець в:
@@ -2263,7 +2263,7 @@ You can change the password in the wallet settings.</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="777"/>
-        <source>Connected daemon is not compatible with GUI. 
+        <source>Connected daemon is not compatible with GUI.
 Please upgrade or connect to another daemon</source>
         <translation>Підключений демон не сумісний з GUI.
 Будь ласка, оновіться або підключіться до іншого демона</translation>
@@ -2314,7 +2314,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="162"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <source>Spendable funds: %1 WAZN. Please wait ~%2 minutes for your whole balance to become spendable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2424,7 +2424,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="590"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
+        <source>Spend WAZN from a cold (offline) wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2574,9 +2574,9 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../pages/TxKey.qml" line="68"/>
-        <source>Generate a proof of your incoming/outgoing payment by supplying the transaction ID, the recipient address and an optional message. 
+        <source>Generate a proof of your incoming/outgoing payment by supplying the transaction ID, the recipient address and an optional message.
 For the case of outgoing payments, you can get a &apos;Spend Proof&apos; that proves the authorship of a transaction. In this case, you don&apos;t need to specify the recipient address.</source>
-        <translation>Згенерувати доказ вашого вхідного/вихідного платежу, надавши ID транзакції, адресу одержувача і необов&apos;язковий опис. 
+        <translation>Згенерувати доказ вашого вхідного/вихідного платежу, надавши ID транзакції, адресу одержувача і необов&apos;язковий опис.
 Для вихідних платежів ви можете отримати &apos;Доказ витрати&apos; (&apos;Spend Proof&apos;), яке підтвердить авторство транзакції. В цьому випадку вам не потрібно вказувати адресу одержувача.</translation>
     </message>
     <message>
@@ -3729,9 +3729,9 @@ your input may be required.</source>
     </message>
     <message>
         <location filename="../main.qml" line="1054"/>
-        <source>Couldn&apos;t generate a proof because of the following reason: 
+        <source>Couldn&apos;t generate a proof because of the following reason:
 </source>
-        <translation>Неможливо згенерувати доказ з наступних причин: 
+        <translation>Неможливо згенерувати доказ з наступних причин:
 </translation>
     </message>
     <message>
@@ -3749,7 +3749,7 @@ your input may be required.</source>
     <message>
         <location filename="../main.qml" line="1094"/>
         <source>This address received %1 wazn, with %2 confirmation(s).</source>
-        <translation>Цей адрес отримав %1 XMR, із %2 підтвердженням(и).</translation>
+        <translation>Цей адрес отримав %1 WAZN, із %2 підтвердженням(и).</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1105"/>
@@ -3820,7 +3820,7 @@ your input may be required.</source>
     <message>
         <location filename="../main.qml" line="1091"/>
         <source>This address received %1 wazn, but the transaction is not yet mined</source>
-        <translation>Цей адрес отримав %1 XMR, але транзакція ще не була підтверджена майнерами</translation>
+        <translation>Цей адрес отримав %1 WAZN, але транзакція ще не була підтверджена майнерами</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1098"/>

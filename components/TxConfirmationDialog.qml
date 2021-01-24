@@ -136,8 +136,8 @@ Rectangle {
         root.sweepUnmixable = false;
     }
 
-    function showFiatConversion(valueXMR) {
-        const fiatFee = fiatApiConvertToFiat(valueXMR);
+    function showFiatConversion(valueWAZN) {
+        const fiatFee = fiatApiConvertToFiat(valueWAZN);
         return "%1 %2".arg(fiatFee < 0.01 ? "<0.01" : "~" + fiatFee).arg(fiatApiCurrencySymbol());
     }
 
@@ -199,7 +199,7 @@ Rectangle {
                     if (root.transactionAmount == "(all)" && currentWallet.isHwBacked() === true) {
                         return qsTr("All unlocked balance") +  translationManager.emptyString;
                     } else {
-                        return root.transactionAmount + " XMR " +  translationManager.emptyString;
+                        return root.transactionAmount + " WAZN " +  translationManager.emptyString;
                     }
                 }
             }
@@ -336,7 +336,7 @@ Rectangle {
                                     return qsTr("Calculating fee") + "..." +  translationManager.emptyString;
                                 }
                             } else {
-                                return root.transactionFee + " XMR"
+                                return root.transactionFee + " WAZN"
                             }
                         } else {
                             return "";

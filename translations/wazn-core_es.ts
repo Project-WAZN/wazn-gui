@@ -2299,8 +2299,8 @@ Puedes cambiar la contraseña en las opciones del monedero.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="162"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Fondos gastables: %1 XMR, Por favor esperar ~%2 minutos para que todo tu balance se vuelva gastable.</translation>
+        <source>Spendable funds: %1 WAZN. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Fondos gastables: %1 WAZN, Por favor esperar ~%2 minutos para que todo tu balance se vuelva gastable.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="354"/>
@@ -2405,8 +2405,8 @@ Puedes cambiar la contraseña en las opciones del monedero.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="590"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
-        <translation>Gastar XMR desde un monedero frio (fuera de línea)</translation>
+        <source>Spend WAZN from a cold (offline) wallet</source>
+        <translation>Gastar WAZN desde un monedero frio (fuera de línea)</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="594"/>

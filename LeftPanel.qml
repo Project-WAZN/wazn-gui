@@ -237,7 +237,7 @@ Rectangle {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
                             return appWindow.fiatApiCurrencySymbol();
                         } else {
-                            return "XMR"
+                            return "WAZN"
                         }
                     }
                     color: WaznComponents.Style.blackTheme ? "white" : "black"

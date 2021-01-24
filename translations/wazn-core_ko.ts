@@ -2186,7 +2186,7 @@ You can change the password in the wallet settings.</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="162"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <source>Spendable funds: %1 WAZN. Please wait ~%2 minutes for your whole balance to become spendable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2322,7 +2322,7 @@ You can change the password in the wallet settings.</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="590"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
+        <source>Spend WAZN from a cold (offline) wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3607,7 +3607,7 @@ Spending address index: </source>
     <message>
         <location filename="../main.qml" line="1094"/>
         <source>This address received %1 wazn, with %2 confirmation(s).</source>
-        <translation>이 주소로 %1 XMR을 받아, %2 번의 컨펌을 받았습니다.</translation>
+        <translation>이 주소로 %1 WAZN을 받아, %2 번의 컨펌을 받았습니다.</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1496"/>
@@ -3721,7 +3721,7 @@ your input may be required.</source>
     <message>
         <location filename="../main.qml" line="1091"/>
         <source>This address received %1 wazn, but the transaction is not yet mined</source>
-        <translation>이 주소는 % 1XMR을 받았지만, 해당 거래가 아직 채굴에 포함되지 않았습니다</translation>
+        <translation>이 주소는 % 1WAZN을 받았지만, 해당 거래가 아직 채굴에 포함되지 않았습니다</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1098"/>

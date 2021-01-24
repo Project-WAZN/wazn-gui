@@ -2310,8 +2310,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="162"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Fondi spendibili: %1 XMR. Attendi ~%2 minuti affinché l&apos;intero saldo diventi spendibile.</translation>
+        <source>Spendable funds: %1 WAZN. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Fondi spendibili: %1 WAZN. Attendi ~%2 minuti affinché l&apos;intero saldo diventi spendibile.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="283"/>
@@ -2425,7 +2425,7 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="590"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
+        <source>Spend WAZN from a cold (offline) wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

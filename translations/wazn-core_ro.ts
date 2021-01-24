@@ -2208,7 +2208,7 @@ Puteți schimba parola în setările portofelului.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="162"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <source>Spendable funds: %1 WAZN. Please wait ~%2 minutes for your whole balance to become spendable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2354,7 +2354,7 @@ Puteți schimba parola în setările portofelului.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="590"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
+        <source>Spend WAZN from a cold (offline) wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

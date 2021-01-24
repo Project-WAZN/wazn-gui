@@ -15,7 +15,7 @@ QtObject {
     property QtObject fontMonoRegular: FontLoader { id: _fontMonoRegular; source: "qrc:/fonts/RobotoMono-Regular.ttf"; }
 
     property string grey: "#404040"
-    property string orange: "#FF6C3C"
+    property string orange: "#339933"
     property string white: "#FFFFFF"
     property string green: "#2EB358"
     property string waznGrey: "#4C4C4C"

@@ -557,7 +557,7 @@ Rectangle {
                     errorMessage = "<p class='orange'>" + qsTr("* To import, you must connect to a local node or a trusted remote node") + "</p>";
                 }
                 return "<style type='text/css'>p{line-height:20px; margin-top:0px; margin-bottom:0px; color:" + WaznComponents.Style.defaultFontColor +
-                       ";} p.orange{color:#ff9323;}</style>" +
+                       ";} p.orange{color:#339933;}</style>" +
                        "<p>" + qsTr("1. Using cold wallet, export the key images into a file") + "</p>" +
                        "<p>" + qsTr("2. Using view-only wallet, import the key images file") + "</p>" +
                        errorMessage + translationManager.emptyString
@@ -598,7 +598,7 @@ Rectangle {
                     errorMessage = "<p class='orange'>" + qsTr("* To create a transaction file, please enter address and amount above") + "</p>";
                 }
                 return "<style type='text/css'>p{line-height:20px; margin-top:0px; margin-bottom:0px; color:" + WaznComponents.Style.defaultFontColor +
-                       ";} p.orange{color:#ff9323;}</style>" +
+                       ";} p.orange{color:#339933;}</style>" +
                        "<p>" + qsTr("1. Using view-only wallet, export the outputs into a file") + "</p>" +
                        "<p>" + qsTr("2. Using cold wallet, import the outputs file and export the key images") + "</p>" +
                        "<p>" + qsTr("3. Using view-only wallet, import the key images file and create a transaction file") + "</p>" +

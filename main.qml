@@ -97,21 +97,21 @@ ApplicationWindow {
     property bool themeTransition: false
 
     // fiat price conversion
-    property real fiatPriceXMRUSD: 0
-    property real fiatPriceXMREUR: 0
+    property real fiatPriceWAZNUSD: 0
+    property real fiatPriceWAZNEUR: 0
     property var fiatPriceAPIs: {
         return {
             "kraken": {
-                "xmrusd": "https://api.kraken.com/0/public/Ticker?pair=XMRUSD",
-                "xmreur": "https://api.kraken.com/0/public/Ticker?pair=XMREUR"
+                "waznusd": "https://api.kraken.com/0/public/Ticker?pair=WAZNUSD",
+                "wazneur": "https://api.kraken.com/0/public/Ticker?pair=WAZNEUR"
             },
             "coingecko": {
-                "xmrusd": "https://api.coingecko.com/api/v3/simple/price?ids=wazn&vs_currencies=usd",
-                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=wazn&vs_currencies=eur"
+                "waznusd": "https://api.coingecko.com/api/v3/simple/price?ids=wazn&vs_currencies=usd",
+                "wazneur": "https://api.coingecko.com/api/v3/simple/price?ids=wazn&vs_currencies=eur"
             },
             "cryptocompare": {
-                "xmrusd": "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=USD",
-                "xmreur": "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=EUR",
+                "waznusd": "https://min-api.cryptocompare.com/data/price?fsym=WAZN&tsyms=USD",
+                "wazneur": "https://min-api.cryptocompare.com/data/price?fsym=WAZN&tsyms=EUR",
             }
         }
     }
@@ -869,16 +869,16 @@ ApplicationWindow {
 
         // validate amount;
         if (amount !== "(all)") {
-            var amountxmr = walletManager.amountFromString(amount);
-            console.log("integer amount: ", amountxmr);
+            var amountwazn = walletManager.amountFromString(amount);
+            console.log("integer amount: ", amountwazn);
             console.log("integer unlocked", currentWallet.unlockedBalance())
-            if (amountxmr <= 0) {
+            if (amountwazn <= 0) {
                 txConfirmationPopup.errorText.text = qsTr("Amount is wrong: expected number from %1 to %2")
                     .arg(walletManager.displayAmount(0))
                     .arg(walletManager.displayAmount(currentWallet.unlockedBalance()))
                     + translationManager.emptyString;
                 return;
-            } else if (amountxmr > currentWallet.unlockedBalance()) {
+            } else if (amountwazn > currentWallet.unlockedBalance()) {
                 txConfirmationPopup.errorText.text = qsTr("Insufficient funds. Unlocked balance: %1")
                     .arg(walletManager.displayAmount(currentWallet.unlockedBalance()))
                     + translationManager.emptyString;
@@ -891,7 +891,7 @@ ApplicationWindow {
         if (amount === "(all)")
             currentWallet.createTransactionAllAsync(address, paymentId, mixinCount, priority);
         else
-            currentWallet.createTransactionAsync(address, paymentId, amountxmr, mixinCount, priority);
+            currentWallet.createTransactionAsync(address, paymentId, amountwazn, mixinCount, priority);
     }
 
     //Choose where to save transaction
@@ -1150,18 +1150,18 @@ ApplicationWindow {
                 return;
             }
 
-            var key = currency === "xmreur" ? "XXMRZEUR" : "XXMRZUSD";
+            var key = currency === "wazneur" ? "XWAZNZEUR" : "XWAZNZUSD";
             var ticker = resp.result[key]["o"];
             return ticker;
         } else if(url.startsWith("https://api.coingecko.com/api/v3/")){
-            var key = currency === "xmreur" ? "eur" : "usd";
+            var key = currency === "wazneur" ? "eur" : "usd";
             if(!resp.hasOwnProperty("wazn") || !resp["wazn"].hasOwnProperty(key)){
                 appWindow.fiatApiError("Coingecko API has error(s)");
                 return;
             }
             return resp["wazn"][key];
         } else if(url.startsWith("https://min-api.cryptocompare.com/data/")){
-            var key = currency === "xmreur" ? "EUR" : "USD";
+            var key = currency === "wazneur" ? "EUR" : "USD";
             if(!resp.hasOwnProperty(key)){
                 appWindow.fiatApiError("cryptocompare API has error(s)");
                 return;
@@ -1213,10 +1213,10 @@ ApplicationWindow {
             return;
         }
 
-        if(persistentSettings.fiatPriceCurrency === "xmrusd")
-            appWindow.fiatPriceXMRUSD = ticker;
-        else if(persistentSettings.fiatPriceCurrency === "xmreur")
-            appWindow.fiatPriceXMREUR = ticker;
+        if(persistentSettings.fiatPriceCurrency === "waznusd")
+            appWindow.fiatPriceWAZNUSD = ticker;
+        else if(persistentSettings.fiatPriceCurrency === "wazneur")
+            appWindow.fiatPriceWAZNEUR = ticker;
 
         appWindow.updateBalance();
     }
@@ -1244,9 +1244,9 @@ ApplicationWindow {
 
     function fiatApiCurrencySymbol() {
         switch (persistentSettings.fiatPriceCurrency) {
-            case "xmrusd":
+            case "waznusd":
                 return "USD";
-            case "xmreur":
+            case "wazneur":
                 return "EUR";
             default:
                 console.error("unsupported currency", persistentSettings.fiatPriceCurrency);
@@ -1255,7 +1255,7 @@ ApplicationWindow {
     }
 
     function fiatApiConvertToFiat(amount) {
-        var ticker = persistentSettings.fiatPriceCurrency === "xmrusd" ? appWindow.fiatPriceXMRUSD : appWindow.fiatPriceXMREUR;
+        var ticker = persistentSettings.fiatPriceCurrency === "waznusd" ? appWindow.fiatPriceWAZNUSD : appWindow.fiatPriceWAZNEUR;
         if(ticker <= 0){
             fiatApiError("Invalid ticker value: " + ticker);
             return "?.??";
@@ -1408,7 +1408,7 @@ ApplicationWindow {
         property bool fiatPriceEnabled: false
         property bool fiatPriceToggle: false
         property string fiatPriceProvider: "kraken"
-        property string fiatPriceCurrency: "xmrusd"
+        property string fiatPriceCurrency: "waznusd"
 
         property string proxyAddress: "127.0.0.1:9050"
         property bool proxyEnabled: isTails

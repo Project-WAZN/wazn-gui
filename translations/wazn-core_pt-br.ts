@@ -2205,8 +2205,8 @@ Você pode alterar a senha nas configurações da carteira.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="162"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Fundos disponíveis:%1 XMR. Aguarde ~%2 minutos para que todo o seu saldo se torne disponível.</translation>
+        <source>Spendable funds: %1 WAZN. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Fundos disponíveis:%1 WAZN. Aguarde ~%2 minutos para que todo o seu saldo se torne disponível.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="283"/>
@@ -2346,8 +2346,8 @@ Você pode alterar a senha nas configurações da carteira.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="590"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
-        <translation>Gastar XMR de uma carteira fria (offline)</translation>
+        <source>Spend WAZN from a cold (offline) wallet</source>
+        <translation>Gastar WAZN de uma carteira fria (offline)</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="594"/>
