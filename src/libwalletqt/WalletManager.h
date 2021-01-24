@@ -42,7 +42,7 @@
 #include "PassphraseHelper.h"
 
 class Wallet;
-namespace Monero {
+namespace Wazn {
 struct WalletManager;
 }
 
@@ -57,14 +57,14 @@ public:
     ~WalletManager();
 
     enum LogLevel {
-        LogLevel_Silent = Monero::WalletManagerFactory::LogLevel_Silent,
-        LogLevel_0 = Monero::WalletManagerFactory::LogLevel_0,
-        LogLevel_1 = Monero::WalletManagerFactory::LogLevel_1,
-        LogLevel_2 = Monero::WalletManagerFactory::LogLevel_2,
-        LogLevel_3 = Monero::WalletManagerFactory::LogLevel_3,
-        LogLevel_4 = Monero::WalletManagerFactory::LogLevel_4,
-        LogLevel_Min = Monero::WalletManagerFactory::LogLevel_Min,
-        LogLevel_Max = Monero::WalletManagerFactory::LogLevel_Max,
+        LogLevel_Silent = Wazn::WalletManagerFactory::LogLevel_Silent,
+        LogLevel_0 = Wazn::WalletManagerFactory::LogLevel_0,
+        LogLevel_1 = Wazn::WalletManagerFactory::LogLevel_1,
+        LogLevel_2 = Wazn::WalletManagerFactory::LogLevel_2,
+        LogLevel_3 = Wazn::WalletManagerFactory::LogLevel_3,
+        LogLevel_4 = Wazn::WalletManagerFactory::LogLevel_4,
+        LogLevel_Min = Wazn::WalletManagerFactory::LogLevel_Min,
+        LogLevel_Max = Wazn::WalletManagerFactory::LogLevel_Max,
     };
 
     // wizard: createWallet path;
@@ -219,7 +219,7 @@ private:
     bool isMining() const;
 
     static WalletManager * m_instance;
-    Monero::WalletManager * m_pimpl;
+    Wazn::WalletManager * m_pimpl;
     mutable QMutex m_mutex;
     QPointer<Wallet> m_currentWallet;
     PassphraseReceiver * m_passphraseReceiver;

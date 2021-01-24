@@ -30,7 +30,7 @@
 #include "SubaddressAccount.h"
 #include <QDebug>
 
-SubaddressAccount::SubaddressAccount(Monero::SubaddressAccount *subaddressAccountImpl, QObject *parent)
+SubaddressAccount::SubaddressAccount(Wazn::SubaddressAccount *subaddressAccountImpl, QObject *parent)
   : QObject(parent), m_subaddressAccountImpl(subaddressAccountImpl)
 {
     getAll();
@@ -51,7 +51,7 @@ void SubaddressAccount::getAll() const
     emit refreshFinished();
 }
 
-bool SubaddressAccount::getRow(int index, std::function<void (Monero::SubaddressAccountRow &)> callback) const
+bool SubaddressAccount::getRow(int index, std::function<void (Wazn::SubaddressAccountRow &)> callback) const
 {
     QReadLocker locker(&m_lock);
 

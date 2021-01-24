@@ -27,15 +27,15 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef MONERO_GUI_WALLETLISTENERIMPL_H
-#define MONERO_GUI_WALLETLISTENERIMPL_H
+#ifndef WAZN_GUI_WALLETLISTENERIMPL_H
+#define WAZN_GUI_WALLETLISTENERIMPL_H
 
 #include "wallet/api/wallet2_api.h"
 #include "PassphraseHelper.h"
 
 class Wallet;
 
-class WalletListenerImpl : public Monero::WalletListener, public PassphraseReceiver
+class WalletListenerImpl : public Wazn::WalletListener, public PassphraseReceiver
 {
 public:
     WalletListenerImpl(Wallet * w);
@@ -59,11 +59,11 @@ public:
 
     virtual void onPassphraseEntered(const QString &passphrase, bool enter_on_device, bool entry_abort) override;
 
-    virtual Monero::optional<std::string> onDevicePassphraseRequest(bool & on_device) override;
+    virtual Wazn::optional<std::string> onDevicePassphraseRequest(bool & on_device) override;
 
 private:
     Wallet * m_wallet;
     PassphraseHelper m_phelper;
 };
 
-#endif //MONERO_GUI_WALLETLISTENERIMPL_H
+#endif //WAZN_GUI_WALLETLISTENERIMPL_H

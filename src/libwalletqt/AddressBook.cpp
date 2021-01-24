@@ -30,7 +30,7 @@
 #include "AddressBook.h"
 #include <QDebug>
 
-AddressBook::AddressBook(Monero::AddressBook *abImpl,QObject *parent)
+AddressBook::AddressBook(Wazn::AddressBook *abImpl,QObject *parent)
   : QObject(parent), m_addressBookImpl(abImpl)
 {
     getAll();
@@ -64,7 +64,7 @@ void AddressBook::getAll()
     emit refreshFinished();
 }
 
-bool AddressBook::getRow(int index, std::function<void (Monero::AddressBookRow &)> callback) const
+bool AddressBook::getRow(int index, std::function<void (Wazn::AddressBookRow &)> callback) const
 {
     QReadLocker locker(&m_lock);
 

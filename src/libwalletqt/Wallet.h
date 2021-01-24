@@ -39,7 +39,7 @@
 #include <QJSValue>
 #include <QtConcurrent/QtConcurrent>
 
-#include "wallet/api/wallet2_api.h" // we need to have an access to the Monero::Wallet::Status enum here;
+#include "wallet/api/wallet2_api.h" // we need to have an access to the Wazn::Wallet::Status enum here;
 #include "qt/FutureScheduler.h"
 #include "PendingTransaction.h" // we need to have an access to the PendingTransaction::Priority enum here;
 #include "UnsignedTransaction.h"
@@ -47,7 +47,7 @@
 #include "PassphraseHelper.h"
 #include "WalletListenerImpl.h"
 
-namespace Monero {
+namespace Wazn {
 struct Wallet; // forward declaration
 }
 
@@ -98,17 +98,17 @@ public:
 
 
     enum Status {
-        Status_Ok       = Monero::Wallet::Status_Ok,
-        Status_Error    = Monero::Wallet::Status_Error,
-        Status_Critical = Monero::Wallet::Status_Critical
+        Status_Ok       = Wazn::Wallet::Status_Ok,
+        Status_Error    = Wazn::Wallet::Status_Error,
+        Status_Critical = Wazn::Wallet::Status_Critical
     };
 
     Q_ENUM(Status)
 
     enum ConnectionStatus {
-        ConnectionStatus_Connected       = Monero::Wallet::ConnectionStatus_Connected,
-        ConnectionStatus_Disconnected    = Monero::Wallet::ConnectionStatus_Disconnected,
-        ConnectionStatus_WrongVersion    = Monero::Wallet::ConnectionStatus_WrongVersion,
+        ConnectionStatus_Connected       = Wazn::Wallet::ConnectionStatus_Connected,
+        ConnectionStatus_Disconnected    = Wazn::Wallet::ConnectionStatus_Disconnected,
+        ConnectionStatus_WrongVersion    = Wazn::Wallet::ConnectionStatus_WrongVersion,
         ConnectionStatus_Connecting
     };
 
@@ -393,7 +393,7 @@ signals:
 
 private:
     Wallet(QObject * parent = nullptr);
-    Wallet(Monero::Wallet *w, QObject * parent = 0);
+    Wallet(Wazn::Wallet *w, QObject * parent = 0);
     ~Wallet();
 
     //! returns current wallet's block height
@@ -428,7 +428,7 @@ private:
     friend class WalletManager;
     friend class WalletListenerImpl;
     //! libwallet's
-    Monero::Wallet * m_walletImpl;
+    Wazn::Wallet * m_walletImpl;
     // history lifetime managed by wallet;
     TransactionHistory * m_history;
     // Used for UI history view
