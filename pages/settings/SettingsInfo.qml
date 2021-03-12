@@ -414,7 +414,7 @@ Rectangle {
                 small: true
                 text: qsTr("Donate to Wazn") + translationManager.emptyString
                 onClicked: {
-                    middlePanel.sendTo("888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H", "", "Donation to Wazn Core Team");
+                    middlePanel.sendTo("WaZNu6WALZaQhiT48zK73j9m9WpaYn3sGUThyHZPMy2t13ngxcY6pVRZrEfwYQztVhbon2vps9B5gSnxrr8WrjZyTSBUP33frpw", "", "Donation to Wazn Core Team");
                 }
             }
         }

@@ -232,7 +232,7 @@ Rectangle {
 
                 WaznComponents.TextPlain {
                     id: currencyLabel
-                    font.pixelSize: 16
+                    font.pixelSize: 12
                     text: {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
                             return appWindow.fiatApiCurrencySymbol();
