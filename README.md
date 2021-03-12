@@ -224,14 +224,14 @@ The WAZN GUI Wallet on Windows is 64 bits only; 32-bit Windows GUI builds are no
 
     ```
     git clone https://github.com/project-wazn/wazn-gui.git
+    cd wazn-gui
     ```
 
 7. Build
 
     ```
-    cd wazn-gui
-    source ./build.sh release-static
-    cd build
+    make release-win64 -j4
+    cd build/release
     make deploy
     ```
 
@@ -243,7 +243,7 @@ The executable can be found in the `.\release\bin` directory.
 ## License
 ```
 Licensed under the GPL-3.0
-Copyright (c) 2019 WAZN Project  
+Copyright (c) 2019-2021 WAZN Project  
 Copyright (c) 2014-2018 The Monero Project  
 Copyright (c) 2012-2013 The Cryptonote developers
 ```
