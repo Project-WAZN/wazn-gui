@@ -316,7 +316,7 @@ Rectangle {
                 }
 
                 WaznComponents.InlineButton {
-                    buttonColor: WaznComponents.Style.orange
+                    buttonColor: WaznComponents.Style.green
                     fontFamily: FontAwesome.fontFamily
                     text: FontAwesome.qrcode
                     visible : appWindow.qrScannerEnabled && !addressLine.text

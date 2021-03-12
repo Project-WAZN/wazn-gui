@@ -265,7 +265,7 @@ Item {
                     font.pixelSize: 12
                     font.bold: false
                     color: "white"
-                    text: "<style type='text/css'>a {text-decoration: none; color: #FF6C3C; font-size: 12px;}</style>%1: %2 <a href='#'>(%3)</a>"
+                    text: "<style type='text/css'>a {text-decoration: none; color: #66CC66; font-size: 12px;}</style>%1: %2 <a href='#'>(%3)</a>"
                         .arg(qsTr("Currently selected address"))
                         .arg(addressLabel)
                         .arg(qsTr("Change")) + translationManager.emptyString
@@ -408,7 +408,7 @@ Item {
                             hoverEnabled: true
                             cursorShape: Qt.PointingHandCursor
                             onEntered: {
-                                parent.color = WaznComponents.Style.orange
+                                parent.color = WaznComponents.Style.green
                             }
                             onExited: {
                                 parent.color = parent._color

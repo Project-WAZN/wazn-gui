@@ -126,7 +126,7 @@ ColumnLayout {
                 property int maxWidth: bar.width
                 width: (maxWidth * root.passwordFill) / 100
                 radius: 8
-                color: WaznComponents.Style.orange
+                color: WaznComponents.Style.green
             }
 
             Rectangle {

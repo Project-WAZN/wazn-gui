@@ -15,11 +15,11 @@ QtObject {
     property QtObject fontMonoRegular: FontLoader { id: _fontMonoRegular; source: "qrc:/fonts/RobotoMono-Regular.ttf"; }
 
     property string grey: "#404040"
-    property string orange: "#339933"
+    property string green: "#339933"
     property string white: "#FFFFFF"
-    property string green: "#2EB358"
+    property string orange: "#2EB358"
     property string waznGrey: "#4C4C4C"
-    property string warningColor: "orange"
+    property string warningColor: "green"
 
     property string defaultFontColor: blackTheme ? _b_defaultFontColor : _w_defaultFontColor
     property string dimmedFontColor: blackTheme ? _b_dimmedFontColor : _w_dimmedFontColor

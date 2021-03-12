@@ -112,7 +112,7 @@ Rectangle {
                         hoverEnabled: true
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onEntered: parent.color = WaznComponents.Style.orange
+                        onEntered: parent.color = WaznComponents.Style.green
                         onExited: parent.color = WaznComponents.Style.defaultFontColor
                         onClicked: {
                             console.log("Copied to clipboard");
@@ -145,7 +145,7 @@ Rectangle {
                         hoverEnabled: true
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onEntered: parent.color = WaznComponents.Style.orange
+                        onEntered: parent.color = WaznComponents.Style.green
                         onExited: parent.color = WaznComponents.Style.defaultFontColor
                         onClicked: {
                             console.log("Copied to clipboard");

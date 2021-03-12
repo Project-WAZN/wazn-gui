@@ -330,7 +330,7 @@ Item {
                             color: {
                                 if(!styleData.visibleMonth) return WaznComponents.Style.lightGreyFontColor
                                 if(dayArea.pressed) return WaznComponents.Style.defaultFontColor
-                                if(styleData.today) return WaznComponents.Style.orange
+                                if(styleData.today) return WaznComponents.Style.green
                                 return WaznComponents.Style.defaultFontColor
                             }
                         }

@@ -265,7 +265,7 @@ Rectangle {
                     color: WaznComponents.Style.blackTheme ? "white" : "black"
                     Binding on color {
                         when: balancePart1MouseArea.containsMouse || balancePart2MouseArea.containsMouse
-                        value: WaznComponents.Style.orange
+                        value: WaznComponents.Style.green
                     }
                     text: {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {

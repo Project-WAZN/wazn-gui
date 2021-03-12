@@ -471,7 +471,7 @@ Rectangle {
                             anchors.fill: parent
                             hoverEnabled: pages > 1
                             cursorShape: hoverEnabled ? Qt.PointingHandCursor : Qt.ArrowCursor
-                            onEntered: parent.color = WaznComponents.Style.orange
+                            onEntered: parent.color = WaznComponents.Style.green
                             onExited: parent.color = WaznComponents.Style.defaultFontColor
                             onClicked: {
                                 if(pages === 1)
@@ -658,7 +658,7 @@ Rectangle {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onEntered: parent.color = WaznComponents.Style.green
                                         onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
@@ -713,7 +713,7 @@ Rectangle {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onEntered: parent.color = WaznComponents.Style.green
                                         onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
@@ -806,7 +806,7 @@ Rectangle {
                                         state: isout ? "copyable_address" : "copyable_receiving_address"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onEntered: parent.color = WaznComponents.Style.green
                                         onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
@@ -857,7 +857,7 @@ Rectangle {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = WaznComponents.Style.orange
+                                        onEntered: parent.color = WaznComponents.Style.green
                                         onExited: parent.color = WaznComponents.Style.defaultFontColor
                                     }
                                 }
@@ -916,7 +916,7 @@ Rectangle {
                                         anchors.fill: parent
                                         hoverEnabled: true
                                         onEntered: {
-                                            parent.color = WaznComponents.Style.orange
+                                            parent.color = WaznComponents.Style.green
                                             if (persistentSettings.historyHumanDates) {
                                                 parent.text = dateTime;
                                             }
@@ -1037,7 +1037,7 @@ Rectangle {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onEntered: parent.color = WaznComponents.Style.green
                                     onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }
@@ -1104,7 +1104,7 @@ Rectangle {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onEntered: parent.color = WaznComponents.Style.green
                                     onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }
@@ -1149,7 +1149,7 @@ Rectangle {
                                     state: "copyable_txkey"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onEntered: parent.color = WaznComponents.Style.green
                                     onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }
@@ -1194,7 +1194,7 @@ Rectangle {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = WaznComponents.Style.orange
+                                    onEntered: parent.color = WaznComponents.Style.green
                                     onExited: parent.color = WaznComponents.Style.defaultFontColor
                                 }
                             }

@@ -102,16 +102,16 @@ ApplicationWindow {
     property var fiatPriceAPIs: {
         return {
             "kraken": {
-                "waznusd": "https://api.kraken.com/0/public/Ticker?pair=WAZNUSD",
-                "wazneur": "https://api.kraken.com/0/public/Ticker?pair=WAZNEUR"
+                "waznusd": "",
+                "wazneur": ""
             },
             "coingecko": {
-                "waznusd": "https://api.coingecko.com/api/v3/simple/price?ids=wazn&vs_currencies=usd",
-                "wazneur": "https://api.coingecko.com/api/v3/simple/price?ids=wazn&vs_currencies=eur"
+                "waznusd": "",
+                "wazneur": ""
             },
             "cryptocompare": {
-                "waznusd": "https://min-api.cryptocompare.com/data/price?fsym=WAZN&tsyms=USD",
-                "wazneur": "https://min-api.cryptocompare.com/data/price?fsym=WAZN&tsyms=EUR",
+                "waznusd": "",
+                "wazneur": "",
             }
         }
     }
@@ -1823,7 +1823,7 @@ ApplicationWindow {
         }
 
         WaznMerchant.MerchantTitlebar {
-            id: titleBarOrange
+            id: titleBarGreen
             visible: persistentSettings.customDecorations && middlePanel.state === "Merchant"
             anchors.left: parent.left
             anchors.right: parent.right
@@ -1838,7 +1838,7 @@ ApplicationWindow {
             property alias text: content.text
             width: content.width + 12
             height: content.height + 17
-            color: "#FF6C3C"
+            color: "#66CC66"
             //radius: 3
             visible:false;
 
@@ -2154,11 +2154,11 @@ ApplicationWindow {
     function getDefaultDaemonRpcPort(networkType) {
         switch (networkType) {
             case NetworkType.STAGENET:
-                return 38081;
+                return 33787;
             case NetworkType.TESTNET:
-                return 28081;
+                return 22787;
             default:
-                return 18081;
+                return 11787;
         }
     }
 
