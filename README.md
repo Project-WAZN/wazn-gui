@@ -112,14 +112,18 @@ If you want to help out, see [CONTRIBUTING](CONTRIBUTING.md) for a set of guidel
 
 3. Clone repository
 
-    `git clone https://github.com/project-wazn/wazn-gui`
+    ```
+    git clone https://github.com/project-wazn/wazn-gui
+    cd wazn-gui
+    ```
 
 4. Build
 
     ```
-    cd wazn-gui
-    QT_SELECT=5 ./build.sh
+    make release -j4
     ```
+    \* `4` - number of CPU threads to use  
+    \* Add `CMAKE_PREFIX_PATH` enviroment variable to set a custom Qt install directory, e.g. `CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/gcc_64 make release -j4`
 
 The executable can be found in the build/release/bin folder.
 
@@ -235,7 +239,7 @@ The WAZN GUI Wallet on Windows is 64 bits only; 32-bit Windows GUI builds are no
     make deploy
     ```
 
-**Note:** The use of `source` above is a dirty workaround for a suspected bug in the current QT version 5.11.2-3 available in the MSYS2 packaging system.
+    \* `4` - number of CPU threads to use
 
 The executable can be found in the `.\release\bin` directory.
 
